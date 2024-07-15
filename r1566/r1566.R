@@ -2,7 +2,7 @@ library(tidyverse)
 BaselineLearn <- read_csv("240705_r1566_0_baseline_learn.csv")
 BaselineLearn <- BaselineLearn %>%
   select(!15:24) %>%
-  filter(Value.Item1.Item2>260) %>%
+  filter(Value.Item1.Item2>71) %>%
   rename(pixelx = Value.Item1.Item3.X, pixely = Value.Item1.Item3.Y, TimePoint = Value.Item1.Item2) %>%
   select(!1, !14)
 x1 <- c(BaselineLearn$pixelx)
@@ -16,6 +16,8 @@ p1circle <- p1 + geom_circle(aes(x0 = 324, y0 = 705, r = 125), color = "blue")
 p1circle <- p1circle + geom_circle(aes(x0 = 783, y0 = 256, r = 125), color = "blue")
 p1circle <- p1circle +
   ggtitle("baseline")
+p1circle
+#Blue represents gnome
 radius <- 125
 center_x1 <- 324
 center_y1 <- 705
@@ -30,7 +32,7 @@ print(points_in_circle2)
 SimilarLearn <- read_csv("240705_r1566_1_similar_learn.csv")
 SimilarLearn <- SimilarLearn %>%
   select(!15:24) %>%
-  filter(Value.Item1.Item2>260) %>%
+  filter(Value.Item1.Item2>71) %>%
   rename(pixelx = Value.Item1.Item3.X, pixely = Value.Item1.Item3.Y, TimePoint = Value.Item1.Item2) %>%
   select(!1, !14)
 x2 <- c(SimilarLearn$pixelx)
@@ -57,7 +59,7 @@ print(points_in_circle2)
 BaselineTest <- read_csv("240705_r1566_2_baseline_test.csv")
 BaselineTest <- BaselineTest %>%
   select(!15:24) %>%
-  filter(Value.Item1.Item2>260) %>%
+  filter(Value.Item1.Item2>71) %>%
   rename(pixelx = Value.Item1.Item3.X, pixely = Value.Item1.Item3.Y, TimePoint = Value.Item1.Item2) %>%
   select(!1, !14)
 x3 <- c(BaselineTest$pixelx)
@@ -70,6 +72,7 @@ p3circle <- p3 + geom_circle(aes(x0 = 324, y0 = 705, r = 125), color = "blue")
 p3circle <- p3circle + geom_circle(aes(x0 = 783, y0 = 266, r = 125), color = "red")
 p3circle <- p3circle +
   ggtitle("baseline")
+#red represents green jar
 radius <- 125
 center_x3 <- 324
 center_y3 <- 705
@@ -84,7 +87,7 @@ print(points_in_circle3)
 DifferentLearn <- read_csv("240705_r1566_3_different_learn.csv")
 DifferentLearn <- DifferentLearn %>%
   select(!15:24) %>%
-  filter(Value.Item1.Item2>260) %>%
+  filter(Value.Item1.Item2>71) %>%
   rename(pixelx = Value.Item1.Item3.X, pixely = Value.Item1.Item3.Y, TimePoint = Value.Item1.Item2) %>%
   select(!1, !14)
 x4 <- c(DifferentLearn$pixelx)
@@ -98,6 +101,7 @@ p4circle <- p4 + geom_circle(aes(x0 = 457, y0 = 994, r = 125), color = "green")
 p4circle <- p4circle + geom_circle(aes(x0 = 1005, y0 = 462, r = 125), color = "green")
 p4circle <- p4circle +
   ggtitle("different")
+#Green represents wide jar.
 radius <- 125
 center_x4 <- 457
 center_y4 <- 994
@@ -112,7 +116,7 @@ print(points_in_circle4)
 BaselineLearn1 <- read_csv("240705_r1566_4_baseline_learn.csv")
 BaselineLearn1 <- BaselineLearn1 %>%
   select(!15:24) %>%
-  filter(Value.Item1.Item2>260) %>%
+  filter(Value.Item1.Item2>71) %>%
   rename(pixelx = Value.Item1.Item3.X, pixely = Value.Item1.Item3.Y, TimePoint = Value.Item1.Item2) %>%
   select(!1, !14)
 x5 <- c(BaselineLearn1$pixelx)
@@ -125,6 +129,7 @@ p5circle <- p5 + geom_circle(aes(x0 = 324, y0 = 705, r = 125), color = "purple")
 p5circle <- p5circle + geom_circle(aes(x0 = 793, y0 = 266, r = 125), color = "purple")
 p5circle <- p5circle +
   ggtitle("baseline")
+#Purple represents cans.
 radius <- 125
 center_x5 <- 324
 center_y5 <- 705
@@ -139,7 +144,7 @@ print(points_in_circle6)
 BaselineTest1 <- read_csv("240705_r1566_5_baseline_test.csv")
 BaselineTest1 <- BaselineTest1 %>%
   select(!15:24) %>%
-  filter(Value.Item1.Item2>260) %>%
+  filter(Value.Item1.Item2>71) %>%
   rename(pixelx = Value.Item1.Item3.X, pixely = Value.Item1.Item3.Y, TimePoint = Value.Item1.Item2) %>%
   select(!1, !14)
 x6 <- c(BaselineTest1$pixelx)
