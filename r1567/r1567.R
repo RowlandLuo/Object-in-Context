@@ -3,7 +3,7 @@ library(tidyverse)
 SimilarLearn <- read_csv("240705_r1567_0_similar_learn.csv")
 SimilarLearn <- SimilarLearn %>%
   select(!15:24) %>%
-  filter(Value.Item1.Item2>260) %>%
+  filter(Value.Item1.Item2>71) %>%
   rename(pixelx = Value.Item1.Item3.X, pixely = Value.Item1.Item3.Y, TimePoint = Value.Item1.Item2) %>%
   select(!1, !14)
 x1 <- c(SimilarLearn$pixelx)
@@ -17,7 +17,6 @@ p1circle <- p1 + geom_circle(aes(x0 = 324, y0 = 715, r = 125), color = "red")
 p1circle <- p1circle + geom_circle(aes(x0 = 787, y0 = 271, r = 125), color = "red")
 p1circle <- p1circle +
   ggtitle("similar")
-p1circle
 radius <- 125
 center_x1 <- 324
 center_y1 <- 715
@@ -32,7 +31,7 @@ print(points_in_circle2)
 BaselineLearn <- read_csv("240705_r1567_1_baseline_learn.csv")
 BaselineLearn <- BaselineLearn %>%
   select(!15:24) %>%
-  filter(Value.Item1.Item2>260) %>%
+  filter(Value.Item1.Item2>91) %>%
   rename(pixelx = Value.Item1.Item3.X, pixely = Value.Item1.Item3.Y, TimePoint = Value.Item1.Item2) %>%
   select(!1, !14)
 x2 <- c(BaselineLearn$pixelx)
@@ -45,7 +44,6 @@ p2circle <- p2 + geom_circle(aes(x0 = 334, y0 = 710, r = 125), color = "blue")
 p2circle <- p2circle + geom_circle(aes(x0 = 788, y0 = 271, r = 125), color = "blue")
 p2circle <- p2circle +
   ggtitle("baseline")
-p2circle
 radius <- 125
 center_x1 <- 330
 center_y1 <- 710
@@ -60,7 +58,7 @@ print(points_in_circle2)
 SimilarTest <- read_csv("240705_r1567_2_similar_test.csv")
 SimilarTest <- SimilarTest %>%
   select(!15:24) %>%
-  filter(Value.Item1.Item2>260) %>%
+  filter(Value.Item1.Item2>71) %>%
   rename(pixelx = Value.Item1.Item3.X, pixely = Value.Item1.Item3.Y, TimePoint = Value.Item1.Item2) %>%
   select(!1, !14)
 x3 <- c(SimilarTest$pixelx)
@@ -73,7 +71,6 @@ p3circle <- p3 + geom_circle(aes(x0 = 324, y0 = 705, r = 125), color = "red")
 p3circle <- p3circle + geom_circle(aes(x0 = 783, y0 = 266, r = 125), color = "blue")
 p3circle <- p3circle +
   ggtitle("similar")
-p3circle
 radius <- 125
 center_x3 <- 324
 center_y3 <- 705
@@ -88,7 +85,7 @@ print(points_in_circle3)
 BaselineLearn1 <- read_csv("240705_r1567_3_baseline_learn.csv")
 BaselineLearn1 <- BaselineLearn1 %>%
   select(!15:24) %>%
-  filter(Value.Item1.Item2>260) %>%
+  filter(Value.Item1.Item2>71) %>%
   rename(pixelx = Value.Item1.Item3.X, pixely = Value.Item1.Item3.Y, TimePoint = Value.Item1.Item2) %>%
   select(!1, !14)
 x4 <- c(BaselineLearn1$pixelx)
@@ -101,7 +98,6 @@ p4circle <- p4 + geom_circle(aes(x0 = 314, y0 = 705, r = 125), color = "purple")
 p4circle <- p4circle + geom_circle(aes(x0 = 783, y0 = 276, r = 125), color = "purple")
 p4circle <- p4circle +
   ggtitle("baseline")
-p4circle
 radius <- 125
 center_x4 <- 314
 center_y4 <- 705
@@ -116,7 +112,7 @@ print(points_in_circle4)
 DifferentLearn <- read_csv("240705_r1567_4_different_learn.csv")
 DifferentLearn <- DifferentLearn %>%
   select(!15:24) %>%
-  filter(Value.Item1.Item2>260) %>%
+  filter(Value.Item1.Item2>94) %>%
   rename(pixelx = Value.Item1.Item3.X, pixely = Value.Item1.Item3.Y, TimePoint = Value.Item1.Item2) %>%
   select(!1, !14)
 x5 <- c(DifferentLearn$pixelx)
@@ -129,7 +125,6 @@ p5circle <- p5 + geom_circle(aes(x0 = 457, y0 = 994, r = 125), color = "green")
 p5circle <- p5circle + geom_circle(aes(x0 = 1025, y0 = 452, r = 125), color = "green")
 p5circle <- p5circle +
   ggtitle("different")
-p5circle
 radius <- 125
 center_x5 <- 457
 center_y5 <- 994
@@ -144,7 +139,7 @@ print(points_in_circle6)
 BaselineTest <- read_csv("240705_r1567_5_baseline_test.csv")
 BaselineTest <- BaselineTest %>%
   select(!15:24) %>%
-  filter(Value.Item1.Item2>260) %>%
+  filter(Value.Item1.Item2>71) %>%
   rename(pixelx = Value.Item1.Item3.X, pixely = Value.Item1.Item3.Y, TimePoint = Value.Item1.Item2) %>%
   select(!1, !14)
 x6 <- c(BaselineTest$pixelx)
@@ -157,7 +152,6 @@ p6circle <- p6 + geom_circle(aes(x0 = 324, y0 = 705, r = 125), color = "purple")
 p6circle <- p6circle + geom_circle(aes(x0 = 783, y0 = 266, r = 125), color = "green")
 p6circle <- p6circle +
   ggtitle("baseline")
-p6circle
 radius <- 125
 center_x6 <- 324
 center_y6 <- 705
