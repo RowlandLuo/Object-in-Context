@@ -3,7 +3,7 @@ library(tidyverse)
 BaselineLearn <- read_csv("240705_r1568_0_baseline_learn.csv")
 BaselineLearn <- BaselineLearn %>%
   select(!15:24) %>%
-  filter(Value.Item1.Item2>260) %>%
+  filter(Value.Item1.Item2>71) %>%
   rename(pixelx = Value.Item1.Item3.X, pixely = Value.Item1.Item3.Y, TimePoint = Value.Item1.Item2) %>%
   select(!1, !14)
 x1 <- c(BaselineLearn$pixelx)
@@ -17,7 +17,6 @@ p1circle <- p1 + geom_circle(aes(x0 = 324, y0 = 715, r = 125), color = "red")
 p1circle <- p1circle + geom_circle(aes(x0 = 787, y0 = 271, r = 125), color = "red")
 p1circle <- p1circle +
   ggtitle("baseline")
-p1circle
 radius <- 125
 center_x1 <- 324
 center_y1 <- 715
@@ -33,7 +32,7 @@ print(points_in_circle2)
 SimilarLearn <- read_csv("240705_r1568_1_similar_learn.csv")
 SimilarLearn <- SimilarLearn %>%
   select(!15:24) %>%
-  filter(Value.Item1.Item2>260) %>%
+  filter(Value.Item1.Item2>83) %>%
   rename(pixelx = Value.Item1.Item3.X, pixely = Value.Item1.Item3.Y, TimePoint = Value.Item1.Item2) %>%
   select(!1, !14)
 x2 <- c(SimilarLearn$pixelx)
@@ -46,7 +45,6 @@ p2circle <- p2 + geom_circle(aes(x0 = 324, y0 = 710, r = 125), color = "blue")
 p2circle <- p2circle + geom_circle(aes(x0 = 788, y0 = 266, r = 125), color = "blue")
 p2circle <- p2circle +
   ggtitle("similar")
-p2circle
 radius <- 125
 center_x1 <- 324
 center_y1 <- 710
@@ -58,10 +56,11 @@ center_y2 <- 266
 df2$distance1 <- sqrt((df2$x - center_x2)^2 + (df2$y - center_y2)^2)
 points_in_circle2 <- sum(df2$distance1 <= radius)
 print(points_in_circle2)
+
 SimilarTest <- read_csv("240705_r1568_2_similar_test.csv")
 SimilarTest <- SimilarTest %>%
   select(!15:24) %>%
-  filter(Value.Item1.Item2>260) %>%
+  filter(Value.Item1.Item2>71) %>%
   rename(pixelx = Value.Item1.Item3.X, pixely = Value.Item1.Item3.Y, TimePoint = Value.Item1.Item2) %>%
   select(!1, !14)
 x3 <- c(SimilarTest$pixelx)
@@ -74,7 +73,6 @@ p3circle <- p3 + geom_circle(aes(x0 = 324, y0 = 705, r = 125), color = "blue")
 p3circle <- p3circle + geom_circle(aes(x0 = 783, y0 = 271, r = 125), color = "red")
 p3circle <- p3circle +
   ggtitle("similar")
-p3circle
 radius <- 125
 center_x3 <- 324
 center_y3 <- 705
@@ -86,10 +84,11 @@ center_y3 <- 271
 df3$distance1 <- sqrt((df3$x - center_x3)^2 + (df3$y - center_y3)^2)
 points_in_circle3 <- sum(df1$distance1 <= radius)
 print(points_in_circle3)
+
 DifferentLearn <- read_csv("240705_r1568_3_different_learn.csv")
 DifferentLearn <- DifferentLearn %>%
   select(!15:24) %>%
-  filter(Value.Item1.Item2>260) %>%
+  filter(Value.Item1.Item2>0) %>%
   rename(pixelx = Value.Item1.Item3.X, pixely = Value.Item1.Item3.Y, TimePoint = Value.Item1.Item2) %>%
   select(!1, !14)
 x4 <- c(DifferentLearn$pixelx)
@@ -102,7 +101,6 @@ p4circle <- p4 + geom_circle(aes(x0 = 452, y0 = 989, r = 125), color = "purple")
 p4circle <- p4circle + geom_circle(aes(x0 = 1030, y0 = 452, r = 125), color = "purple")
 p4circle <- p4circle +
   ggtitle("different")
-p4circle
 radius <- 125
 center_x4 <- 452
 center_y4 <- 989
@@ -118,7 +116,7 @@ print(points_in_circle4)
 BaselineLearn <- read_csv("240705_r1568_4_baseline_learn.csv")
 BaselineLearn <- BaselineLearn %>%
   select(!15:24) %>%
-  filter(Value.Item1.Item2>260) %>%
+  filter(Value.Item1.Item2>71) %>%
   rename(pixelx = Value.Item1.Item3.X, pixely = Value.Item1.Item3.Y, TimePoint = Value.Item1.Item2) %>%
   select(!1, !14)
 x5 <- c(BaselineLearn$pixelx)
@@ -131,7 +129,6 @@ p5circle <- p5 + geom_circle(aes(x0 = 319, y0 = 705, r = 125), color = "green")
 p5circle <- p5circle + geom_circle(aes(x0 = 783, y0 = 266, r = 125), color = "green")
 p5circle <- p5circle +
   ggtitle("baseline")
-p5circle
 radius <- 125
 center_x5 <- 319
 center_y5 <- 705
@@ -147,7 +144,7 @@ print(points_in_circle6)
 DifferentTest <- read_csv("240705_r1568_5_different_test.csv")
 DifferentTest <- DifferentTest %>%
   select(!15:24) %>%
-  filter(Value.Item1.Item2>260) %>%
+  filter(Value.Item1.Item2>71) %>%
   rename(pixelx = Value.Item1.Item3.X, pixely = Value.Item1.Item3.Y, TimePoint = Value.Item1.Item2) %>%
   select(!1, !14)
 x6 <- c(DifferentTest$pixelx)
@@ -160,7 +157,6 @@ p6circle <- p6 + geom_circle(aes(x0 = 452, y0 = 989, r = 125), color = "purple")
 p6circle <- p6circle + geom_circle(aes(x0 = 1030, y0 = 452, r = 125), color = "green")
 p6circle <- p6circle +
   ggtitle("different")
-p6circle
 radius <- 125
 center_x6 <- 452
 center_y6 <- 989
