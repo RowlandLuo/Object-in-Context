@@ -63,4 +63,10 @@ p1 <- ggplot(ObjectinContextforAnalysis, aes(x = Positions, y = Frames, color = 
   theme_minimal()
 p1 <- p1 + geom_point()
 p1
-
+p2 <- ggplot(ObjectinContextforAnalysis, aes(x = RatAge, y = Ratio, color = Positions, group = Positions)) +
+  stat_summary(fun = mean, geom = "line", size = 1) +
+  stat_summary(fun = mean, geom = "point", size = 3) +
+  labs(x = "Rat Age", y = "Ratio") +
+  theme_minimal()
+p2 <- p2 + geom_point()
+p2
