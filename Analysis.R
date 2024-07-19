@@ -110,3 +110,4 @@ p4 <- ggplot(summary_data1, aes(x = Positions, y = mean_frames, color = Environm
   geom_line() +
   geom_point() +
   facet_wrap(~RatAge)
+#OKay, this is a mixed model ANOVA and I need to redo the analysis.

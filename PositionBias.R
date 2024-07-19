@@ -9,7 +9,7 @@ t.test(Frames ~ FramePosition, data = PositionBias)
 ObjectInterest <- read_csv("Bonsai-IsaRow - Object-in-context.csv")
 ObjectInterest <- ObjectInterest %>%
   select(26:27)
-boxplot(Frames1 ~ Objects, data = ObjectInterest)
+boxplot(Frames1 ~ Objects, data = ObjectInterest, main = "Boxplot of the Four Objects of Interests")
 one.way <- aov(Frames1 ~ Objects, data = ObjectInterest)
 summary(one.way)
 #So the green jar is not significantly less interesting than other objects.
