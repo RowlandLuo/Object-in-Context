@@ -82,8 +82,9 @@ print(points_in_circle3)
 center_x3 <- 783
 center_y3 <- 266
 df3$distance1 <- sqrt((df3$x - center_x3)^2 + (df3$y - center_y3)^2)
-points_in_circle3 <- sum(df1$distance1 <= radius)
+points_in_circle3 <- sum(df3$distance1 <= radius)
 print(points_in_circle3)
+
 DifferentLearn <- read_csv("240705_r1566_3_different_learn.csv")
 DifferentLearn <- DifferentLearn %>%
   select(!15:24) %>%
