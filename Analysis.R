@@ -40,7 +40,8 @@ ObjectinContext <- ObjectinContext %>%
 ObjectinContextforAnalysis <- read_csv("Bonsai-IsaRow - ObjectinContextforAnalysis.csv")
 ObjectinContextforAnalysis <- ObjectinContextforAnalysis %>%
   mutate(Positions = factor(Positions, levels = c(1, 2)),
-         RatAge = factor(RatAge, levels = c("p17", "p23")))
+         RatAge = factor(RatAge, levels = c("p17", "p23")),
+         Environment = factor(Environment, levels = c("Baseline", "Similar", "Different")))
 anova_model <- aov(Ratio ~ Positions * RatAge, data = ObjectinContextforAnalysis)
 summary(anova_model)
 install.packages("car")
@@ -70,3 +71,42 @@ p2 <- ggplot(ObjectinContextforAnalysis, aes(x = RatAge, y = Ratio, color = Posi
   theme_minimal()
 p2 <- p2 + geom_point()
 p2
+#Isa said we need to do a three-way ANOVA even if the power is not enough. So let's do that.
+install.packages("emmeans")
+install.packages("multcomp")
+install.packages("carData")
+install.packages("mvtnorm")
+install.packages("survival")
+install.packages("TH.data")
+install.packages("MASS")
+library(carData)
+library(car)
+library(emmeans)
+library(mvtnorm)
+library(survival)
+library(TH.data)
+library(MASS)
+library(multcomp)
+fit <- aov(Ratio ~ Positions * RatAge * Environment, data = ObjectinContextforAnalysis)
+summary(fit)
+#Nothing is significant. Now we visualize the three-way ANOVA results.
+summary_data <- ObjectinContextforAnalysis %>%
+  group_by(Positions, RatAge, Environment) %>%
+  summarise(mean_ratio = mean(Ratio), .groups = "drop")
+summary_data
+p3 <- ggplot(summary_data, aes(x = Positions, y = mean_ratio, color = Environment, group = Environment)) +
+  geom_line() +
+  geom_point() +
+  facet_wrap(~RatAge)
+#Let's try it without correcting the data with position bias.
+fit1 <- aov(Frames ~ Positions * RatAge * Environment, data = ObjectinContextforAnalysis)
+summary(fit1)
+#The environment has a significant main effect!!!
+summary_data1 <- ObjectinContextforAnalysis %>%
+  group_by(Positions, RatAge, Environment) %>%
+  summarise(mean_frames = mean(Frames), .groups = "drop")
+summary_data1
+p4 <- ggplot(summary_data1, aes(x = Positions, y = mean_frames, color = Environment, group = Environment)) +
+  geom_line() +
+  geom_point() +
+  facet_wrap(~RatAge)
