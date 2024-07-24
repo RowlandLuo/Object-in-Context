@@ -166,3 +166,59 @@ print(points_in_circle6)
 library(gridExtra)
 grid.arrange(p1circle, p2circle, p3circle, p4circle, p5circle, p6circle, nrow = 2, ncol = 3)
 
+#Exclude Grooming.
+library(tidyverse)
+Grooming1 <- read_csv("240723_r1567_similar_2.csv")
+Grooming1 <- Grooming1 %>%
+  mutate(Frames = 0:7750)
+Grooming1 <- Grooming1 %>%
+  filter(Value.Item2 == TRUE)
+SimilarTest <- read_csv("240705_r1567_2_similar_test.csv")
+SimilarTest <- SimilarTest %>%
+  select(!15:24) %>%
+  filter(Value.Item1.Item2>71) %>%
+  rename(pixelx = Value.Item1.Item3.X, pixely = Value.Item1.Item3.Y, TimePoint = Value.Item1.Item2) %>%
+  select(!1, !14)
+SimilarTest <- SimilarTest %>%
+  filter(!TimePoint %in% Grooming1$Frames)
+x3 <- c(SimilarTest$pixelx)
+y3 <- c(SimilarTest$pixely)
+df3 <- data.frame(x = x3, y = y3)
+radius <- 125
+center_x3 <- 324
+center_y3 <- 705
+df3$distance <- sqrt((df3$x - center_x3)^2 + (df3$y - center_y3)^2)
+points_in_circle3 <- sum(df3$distance <= radius)
+print(points_in_circle3)
+center_x3 <- 783
+center_y3 <- 266
+df3$distance1 <- sqrt((df3$x - center_x3)^2 + (df3$y - center_y3)^2)
+points_in_circle3 <- sum(df3$distance1 <= radius)
+print(points_in_circle3)
+Grooming2 <- read_csv("240723_r1567_baseline_5.csv")
+Grooming2 <- Grooming2 %>%
+  mutate(Frames = 0:7750)
+Grooming2 <- Grooming2 %>%
+  filter(Value.Item2 == TRUE)
+BaselineTest <- read_csv("240705_r1567_5_baseline_test.csv")
+BaselineTest <- BaselineTest %>%
+  select(!15:24) %>%
+  filter(Value.Item1.Item2>71) %>%
+  rename(pixelx = Value.Item1.Item3.X, pixely = Value.Item1.Item3.Y, TimePoint = Value.Item1.Item2) %>%
+  select(!1, !14)
+BaselineTest <- BaselineTest %>%
+  filter(!TimePoint %in% Grooming2$Frames)
+x6 <- c(BaselineTest$pixelx)
+y6 <- c(BaselineTest$pixely)
+df6 <- data.frame(x = x6, y = y6)
+radius <- 125
+center_x6 <- 324
+center_y6 <- 705
+df6$distance <- sqrt((df6$x - center_x6)^2 + (df6$y - center_y6)^2)
+points_in_circle6 <- sum(df6$distance <= radius)
+print(points_in_circle6)
+center_x6 <- 783
+center_y6 <- 266
+df6$distance1 <- sqrt((df6$x - center_x6)^2 + (df6$y - center_y6)^2)
+points_in_circle6 <- sum(df6$distance1 <= radius)
+print(points_in_circle6)
