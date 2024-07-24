@@ -171,3 +171,38 @@ print(points_in_circle6)
 library(gridExtra)
 grid.arrange(p1circle, p2circle, p3circle, p4circle, p5circle, p6circle, nrow = 2, ncol = 3)
 
+#Exclude grooming.
+library(tidyverse)
+Grooming1 <- read_csv("240723_r1568_similar_2.csv")
+Grooming1 <- Grooming1 %>%
+  mutate(Frames = 0:7750)
+Grooming1 <- Grooming1 %>%
+  filter(Value.Item2 == TRUE)
+#No grooming in this trial.
+Grooming2 <- read_csv("240723_r1568_different_5.csv")
+Grooming2 <- Grooming2 %>%
+  mutate(Frames = 0:7750)
+Grooming2 <- Grooming2 %>%
+  filter(Value.Item2 == TRUE)
+DifferentTest <- read_csv("240705_r1568_5_different_test.csv")
+DifferentTest <- DifferentTest %>%
+  select(!15:24) %>%
+  filter(Value.Item1.Item2>71) %>%
+  rename(pixelx = Value.Item1.Item3.X, pixely = Value.Item1.Item3.Y, TimePoint = Value.Item1.Item2) %>%
+  select(!1, !14)
+DifferentTest <- DifferentTest %>%
+  filter(!TimePoint %in% Grooming2$Frames)
+x6 <- c(DifferentTest$pixelx)
+y6 <- c(DifferentTest$pixely)
+df6 <- data.frame(x = x6, y = y6)
+radius <- 125
+center_x6 <- 452
+center_y6 <- 989
+df6$distance <- sqrt((df6$x - center_x6)^2 + (df6$y - center_y6)^2)
+points_in_circle6 <- sum(df6$distance <= radius)
+print(points_in_circle6)
+center_x6 <- 1030
+center_y6 <- 452
+df6$distance1 <- sqrt((df6$x - center_x6)^2 + (df6$y - center_y6)^2)
+points_in_circle6 <- sum(df6$distance1 <= radius)
+print(points_in_circle6)
