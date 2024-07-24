@@ -1,0 +1,555 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WorkflowBuilder Version="2.8.1"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xmlns:rx="clr-namespace:Bonsai.Reactive;assembly=Bonsai.Core"
+                 xmlns:ipy="clr-namespace:Bonsai.Scripting.IronPython;assembly=Bonsai.Scripting.IronPython"
+                 xmlns:scr="clr-namespace:Bonsai.Scripting.Expressions;assembly=Bonsai.Scripting.Expressions"
+                 xmlns:cv="clr-namespace:Bonsai.Vision;assembly=Bonsai.Vision"
+                 xmlns:wie="clr-namespace:Bonsai.Windows.Input;assembly=Bonsai.Windows.Input"
+                 xmlns:io="clr-namespace:Bonsai.IO;assembly=Bonsai.System"
+                 xmlns="https://bonsai-rx.org/2018/workflow">
+  <Workflow>
+    <Nodes>
+      <Expression xsi:type="GroupWorkflow">
+        <Name>Settings</Name>
+        <Workflow>
+          <Nodes>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="StringProperty">
+                <Value>240718</Value>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="rx:BehaviorSubject">
+              <Name>Date</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="StringProperty">
+                <Value>r1573</Value>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="rx:BehaviorSubject">
+              <Name>Animal</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="IntProperty">
+                <Value>0</Value>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="ipy:PythonTransform">
+              <ipy:Name>Get trial type</ipy:Name>
+              <ipy:Script>@returns(str)
+def process(value):
+  if value == 0:
+      return 'baseline'
+  elif value == 1:
+      return 'similar'
+  elif value == 2:
+      return 'different'
+  else:
+      raise ValueError('Trial type set incorrectly')</ipy:Script>
+            </Expression>
+            <Expression xsi:type="rx:BehaviorSubject">
+              <Name>Trial Type</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="IntProperty">
+                <Value>2</Value>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="ipy:PythonTransform">
+              <ipy:Name>Get trial type</ipy:Name>
+              <ipy:Script>@returns(str)
+def process(value):
+  if value == 0:
+      return 'object-interest'
+  elif value == 1:
+      return 'learn'
+  elif value == 2:
+      return 'test'
+  else:
+      raise ValueError('Trial type set incorrectly')</ipy:Script>
+            </Expression>
+            <Expression xsi:type="rx:BehaviorSubject">
+              <Name>Test condition</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="IntProperty">
+                <Value>5</Value>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="rx:BehaviorSubject">
+              <Name>Trial Number</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="StringProperty">
+                <Value>C:\Users\Jake\Desktop</Value>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="rx:BehaviorSubject">
+              <Name>Directory</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="IntProperty">
+                <Value>25</Value>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="rx:BehaviorSubject">
+              <Name>Framerate</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="IntProperty">
+                <Value>310</Value>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="rx:BehaviorSubject">
+              <Name>Trial Duration (s)</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="IntProperty">
+                <Value>100</Value>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="rx:BehaviorSubject">
+              <Name>Min Area</Name>
+            </Expression>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="SubscribeSubject">
+                <Name>Trial Type</Name>
+              </Builder>
+            </Expression>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="ipy:PythonTransform">
+                <ipy:Name>Get Camera Properties</ipy:Name>
+                <ipy:Script>from System import Tuple
+
+def process(value):
+    """
+    Returns a tuple of tuples containing configuration parameters based on the input argument.
+    Each inner tuple represents the configuration for a camera.
+    
+    Parameters:
+    - value (str): The name of the experimental setup (e.g., "open-field", "T-maze", "fam-box").
+    
+    Returns:
+    - Tuple of Tuples: Each inner tuple contains the following configuration parameters:
+      1. An int value for output to an Arduino device.
+      2-5. Camera crop ROI boundaries.
+      6. A threshold value.
+    """
+    if value == "open-field":
+        # Configuration for open-field (single camera example)
+        return Tuple.Create(Tuple.Create(99, 120, 10, 830, 755, 60))
+    elif value == "T-maze":
+        # T-maze with two cameras
+        # Camera 1 configuration
+        cam1_config = Tuple.Create(99, 120, 10, 830, 755, 60)
+        # Camera 2 configuration, assuming different values for demonstration
+        cam2_config = Tuple.Create(88, 130, 20, 820, 745, 50)
+        return Tuple.Create(cam1_config, cam2_config)
+    elif value == "fam-box":
+        # Configuration for fam-box (single camera example)
+        return Tuple.Create(Tuple.Create(99, 120, 10, 830, 755, 60))
+    else:
+        # Handle unexpected value
+        raise ValueError("Unsupported experimental setup")</ipy:Script>
+              </Builder>
+            </Expression>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="rx:BehaviorSubject">
+                <Name>Camera Properties</Name>
+              </Builder>
+            </Expression>
+            <Expression xsi:type="ipy:PythonSource">
+              <ipy:Name>Generate ROIs</ipy:Name>
+              <ipy:Script>from System import Tuple
+
+@returns(Tuple[Tuple[int, int, int, int, int],
+               Tuple[int, int, int, int, int],
+               Tuple[int, int, int, int, int],
+               Tuple[int, int, int, int, int]])
+def generate():
+  # Format: roi_id, x1, x2, y1, y2
+  roi_1 = Tuple.Create(1, 185, 175, 333, 372)
+  roi_2 = Tuple.Create(2, 376, 816, 108, 148)
+  roi_3 = Tuple.Create(3, 0, 0, 0, 0)
+  roi_4 = Tuple.Create(4, 0, 0, 0, 0)
+  
+  yield Tuple.Create(roi_1, roi_2, roi_3, roi_4)</ipy:Script>
+            </Expression>
+            <Expression xsi:type="rx:BehaviorSubject">
+              <Name>T-maze ROIs</Name>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>Date</Name>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>Animal</Name>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>Trial Type</Name>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>Trial Number</Name>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>Test condition</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:Zip" />
+            </Expression>
+            <Expression xsi:type="scr:ExpressionTransform">
+              <scr:Name>Make File Name</scr:Name>
+              <scr:Expression>Item1 + "_" + Item2 + "_" + Item3 + "_" + Item4.ToString()</scr:Expression>
+            </Expression>
+            <Expression xsi:type="rx:BehaviorSubject">
+              <Name>File Name</Name>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>Directory</Name>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>File Name</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:Zip" />
+            </Expression>
+            <Expression xsi:type="scr:ExpressionTransform">
+              <scr:Expression>Item1 + "/" + Item2 + ".csv"</scr:Expression>
+            </Expression>
+            <Expression xsi:type="rx:BehaviorSubject">
+              <Name>csv File Name</Name>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>Directory</Name>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>File Name</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:Zip" />
+            </Expression>
+            <Expression xsi:type="scr:ExpressionTransform">
+              <scr:Expression>Item1 + "/" + Item2 + ".avi"</scr:Expression>
+            </Expression>
+            <Expression xsi:type="rx:BehaviorSubject">
+              <Name>avi File Name</Name>
+            </Expression>
+          </Nodes>
+          <Edges>
+            <Edge From="0" To="1" Label="Source1" />
+            <Edge From="2" To="3" Label="Source1" />
+            <Edge From="4" To="5" Label="Source1" />
+            <Edge From="5" To="6" Label="Source1" />
+            <Edge From="7" To="8" Label="Source1" />
+            <Edge From="8" To="9" Label="Source1" />
+            <Edge From="10" To="11" Label="Source1" />
+            <Edge From="12" To="13" Label="Source1" />
+            <Edge From="14" To="15" Label="Source1" />
+            <Edge From="16" To="17" Label="Source1" />
+            <Edge From="18" To="19" Label="Source1" />
+            <Edge From="20" To="21" Label="Source1" />
+            <Edge From="21" To="22" Label="Source1" />
+            <Edge From="23" To="24" Label="Source1" />
+            <Edge From="25" To="30" Label="Source1" />
+            <Edge From="26" To="30" Label="Source2" />
+            <Edge From="27" To="30" Label="Source3" />
+            <Edge From="28" To="30" Label="Source4" />
+            <Edge From="29" To="30" Label="Source5" />
+            <Edge From="30" To="31" Label="Source1" />
+            <Edge From="31" To="32" Label="Source1" />
+            <Edge From="33" To="35" Label="Source1" />
+            <Edge From="34" To="35" Label="Source2" />
+            <Edge From="35" To="36" Label="Source1" />
+            <Edge From="36" To="37" Label="Source1" />
+            <Edge From="38" To="40" Label="Source1" />
+            <Edge From="39" To="40" Label="Source2" />
+            <Edge From="40" To="41" Label="Source1" />
+            <Edge From="41" To="42" Label="Source1" />
+          </Edges>
+        </Workflow>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="cv:FileCapture">
+          <cv:FileName>C:\Users\Jake\Desktop\240705_r1566_0_baseline_learn.avi</cv:FileName>
+          <cv:PlaybackRate>800</cv:PlaybackRate>
+          <cv:StartPosition>0</cv:StartPosition>
+          <cv:PositionUnits>Frames</cv:PositionUnits>
+          <cv:Loop>false</cv:Loop>
+          <cv:Playing>true</cv:Playing>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="cv:ConvertColor">
+          <cv:Conversion>Rgb2Hsv</cv:Conversion>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="cv:HsvThreshold">
+          <cv:Lower>
+            <cv:Val0>0</cv:Val0>
+            <cv:Val1>0</cv:Val1>
+            <cv:Val2>0</cv:Val2>
+            <cv:Val3>0</cv:Val3>
+          </cv:Lower>
+          <cv:Upper>
+            <cv:Val0>179</cv:Val0>
+            <cv:Val1>255</cv:Val1>
+            <cv:Val2>71</cv:Val2>
+            <cv:Val3>0</cv:Val3>
+          </cv:Upper>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="cv:FindContours">
+          <cv:Mode>External</cv:Mode>
+          <cv:Method>ChainApproxNone</cv:Method>
+          <cv:Offset>
+            <cv:X>0</cv:X>
+            <cv:Y>0</cv:Y>
+          </cv:Offset>
+          <cv:MinArea xsi:nil="true" />
+          <cv:MaxArea xsi:nil="true" />
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="cv:BinaryRegionAnalysis" />
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="cv:LargestBinaryRegion" />
+      </Expression>
+      <Expression xsi:type="GroupWorkflow">
+        <Name>Area Threshold</Name>
+        <Workflow>
+          <Nodes>
+            <Expression xsi:type="WorkflowInput">
+              <Name>Source1</Name>
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>Centroid</Selector>
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>Area</Selector>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:Zip" />
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>Min Area</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:WithLatestFrom" />
+            </Expression>
+            <Expression xsi:type="ipy:PythonTransform">
+              <ipy:Name>Tracked Area Threshold</ipy:Name>
+              <ipy:Script>import clr
+clr.AddReference("OpenCV.Net")
+import System
+from System import Double
+from System import Single
+from OpenCV.Net import Point2f
+
+@returns(Point2f)
+def process(value):
+    point, area = value.Item1.Item1, value.Item1.Item2
+    threshold = value.Item2
+    if area &gt; threshold:
+        return point
+    else:
+        return Point2f(Single.NaN, Single.NaN)</ipy:Script>
+            </Expression>
+            <Expression xsi:type="WorkflowOutput" />
+          </Nodes>
+          <Edges>
+            <Edge From="0" To="1" Label="Source1" />
+            <Edge From="0" To="2" Label="Source1" />
+            <Edge From="1" To="3" Label="Source1" />
+            <Edge From="2" To="3" Label="Source2" />
+            <Edge From="3" To="5" Label="Source1" />
+            <Edge From="4" To="5" Label="Source2" />
+            <Edge From="5" To="6" Label="Source1" />
+            <Edge From="6" To="7" Label="Source1" />
+          </Edges>
+        </Workflow>
+      </Expression>
+      <Expression xsi:type="rx:BehaviorSubject">
+        <Name>Centroid</Name>
+      </Expression>
+      <Expression xsi:type="rx:BehaviorSubject">
+        <Name>Video</Name>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="wie:KeyDown">
+          <wie:Filter>G</wie:Filter>
+          <wie:SuppressRepetitions>false</wie:SuppressRepetitions>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="IntProperty">
+          <Value>1</Value>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="rx:Accumulate" />
+      <Expression xsi:type="scr:ExpressionTransform">
+        <scr:Name>Toggle Grooming Y/N</scr:Name>
+        <scr:Expression>(it+1)%2 == 0</scr:Expression>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="BooleanProperty">
+          <Value>false</Value>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="rx:Merge" />
+      </Expression>
+      <Expression xsi:type="rx:BehaviorSubject">
+        <Name>Grooming Y/N</Name>
+      </Expression>
+      <Expression xsi:type="SubscribeSubject">
+        <Name>csv File Name</Name>
+      </Expression>
+      <Expression xsi:type="PropertyMapping">
+        <PropertyMappings>
+          <Property Name="FileName" />
+        </PropertyMappings>
+      </Expression>
+      <Expression xsi:type="SubscribeSubject">
+        <Name>Centroid</Name>
+      </Expression>
+      <Expression xsi:type="SubscribeSubject">
+        <Name>Grooming Y/N</Name>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="rx:WithLatestFrom" />
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="rx:Timestamp" />
+      </Expression>
+      <Expression xsi:type="io:CsvWriter">
+        <io:FileName>C:\Users\Jake\Desktop/240718_r1573_baseline_5.csv</io:FileName>
+        <io:Append>false</io:Append>
+        <io:Overwrite>false</io:Overwrite>
+        <io:Suffix>None</io:Suffix>
+        <io:IncludeHeader>true</io:IncludeHeader>
+      </Expression>
+      <Expression xsi:type="SubscribeSubject">
+        <Name>Centroid</Name>
+      </Expression>
+      <Expression xsi:type="SubscribeSubject">
+        <Name>T-maze ROIs</Name>
+      </Expression>
+      <Expression xsi:type="SubscribeSubject">
+        <Name>Video</Name>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="cv:ConvertColor">
+          <cv:Conversion>Rgb2Gray</cv:Conversion>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="rx:CombineLatest" />
+      </Expression>
+      <Expression xsi:type="ipy:PythonTransform">
+        <ipy:Name>Plot trajectory online</ipy:Name>
+        <ipy:Script>import clr
+clr.AddReference("OpenCV.Net")
+from OpenCV.Net import *
+from System import Tuple, Single
+
+# Accumulators for keeping history
+trajectory = None
+prevpoint = None
+color = Scalar.Rgb(255, 0, 0)  # Color for the trajectory
+thickness = 3  # Thickness of the trajectory line
+roi_colors = [Scalar.Rgb(255, 0, 0), Scalar.Rgb(0, 255, 0), Scalar.Rgb(0, 0, 255), Scalar.Rgb(255, 255, 0)]  # List of colors for the ROIs
+text_color = Scalar.Rgb(255, 255, 255)  # Color for the text
+
+@returns(IplImage)
+def process(value):
+    global trajectory, prevpoint
+    centroid = value.Item1
+    image = value.Item3.Clone()
+
+    # Extract ROI tuples
+    rois = [value.Item2.Item1, value.Item2.Item2, value.Item2.Item3, value.Item2.Item4]
+
+    # Initialize trajectory image accumulator if needed
+    if trajectory is None:
+        trajectory = IplImage(image.Size, image.Depth, 3)
+        trajectory.SetZero()
+
+    # Check if centroid.X is NaN
+    if not Single.IsNaN(centroid.X):
+        # Draw point or line for the trajectory
+        if prevpoint is None:
+            CV.Circle(trajectory, Point(centroid), thickness, color, -1)
+        else:
+            CV.Line(trajectory, Point(prevpoint), Point(centroid), color, thickness)
+
+        # Update history for next drawing
+        prevpoint = centroid
+
+    # Create a copy of the image to overlay ROIs
+    output = IplImage(image.Size, image.Depth, 3)
+    CV.CvtColor(image, output, ColorConversion.Gray2Bgr)
+
+    # Overlay ROIs on the copied image by drawing rectangle borders with unique colors
+    for i, roi in enumerate(rois):
+        roi_id, x1, x2, y1, y2 = roi
+        roi_color = roi_colors[i % len(roi_colors)]  # Cycle through the list of colors
+        CV.Rectangle(output, Point(x1, y1), Point(x2, y2), roi_color, thickness)
+
+        # Calculate the center of the rectangle to place the text
+        center_x = (x1 + x2) // 2
+        center_y = (y1 + y2) // 2
+
+        # Draw the ROI ID at the center of the rectangle
+        # Adjusting the call to match the expected argument count for PutText
+        # CV.PutText(output, str(roi_id), Point(center_x, center_y), FontFace.HersheySimplex, text_color)
+
+    # Draw trajectory on top of the ROI overlays
+    mask = IplImage(image.Size, image.Depth, 1)
+    CV.CvtColor(trajectory, mask, ColorConversion.Bgr2Gray)
+    CV.Threshold(mask, mask, 0, 255, ThresholdTypes.Binary)
+    CV.Copy(trajectory, output, mask)
+
+    # Update history for next drawing
+    prevpoint = centroid
+    return output
+
+# Reset accumulators
+def unload():
+    global trajectory, prevpoint
+    trajectory = None
+    prevpoint = None
+</ipy:Script>
+      </Expression>
+    </Nodes>
+    <Edges>
+      <Edge From="1" To="2" Label="Source1" />
+      <Edge From="1" To="9" Label="Source1" />
+      <Edge From="2" To="3" Label="Source1" />
+      <Edge From="3" To="4" Label="Source1" />
+      <Edge From="4" To="5" Label="Source1" />
+      <Edge From="5" To="6" Label="Source1" />
+      <Edge From="6" To="7" Label="Source1" />
+      <Edge From="7" To="8" Label="Source1" />
+      <Edge From="10" To="11" Label="Source1" />
+      <Edge From="11" To="12" Label="Source1" />
+      <Edge From="12" To="13" Label="Source1" />
+      <Edge From="13" To="15" Label="Source1" />
+      <Edge From="14" To="15" Label="Source2" />
+      <Edge From="15" To="16" Label="Source1" />
+      <Edge From="17" To="18" Label="Source1" />
+      <Edge From="18" To="23" Label="Source1" />
+      <Edge From="19" To="21" Label="Source1" />
+      <Edge From="20" To="21" Label="Source2" />
+      <Edge From="21" To="22" Label="Source1" />
+      <Edge From="22" To="23" Label="Source2" />
+      <Edge From="24" To="28" Label="Source1" />
+      <Edge From="25" To="28" Label="Source2" />
+      <Edge From="26" To="27" Label="Source1" />
+      <Edge From="27" To="28" Label="Source3" />
+      <Edge From="28" To="29" Label="Source1" />
+    </Edges>
+  </Workflow>
+</WorkflowBuilder>
