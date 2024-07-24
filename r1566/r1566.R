@@ -172,3 +172,39 @@ print(points_in_circle6)
 library(gridExtra)
 grid.arrange(p1circle, p2circle, p3circle, p4circle, p5circle, p6circle, nrow = 2, ncol = 3)
 
+#Exclude grooming.
+library(tidyverse)
+Grooming1 <- read_csv("240723_r1566_baseline_2.csv")
+Grooming1 <- Grooming1 %>%
+  mutate(Frames = 0:7750)
+Grooming1 <- Grooming1 %>%
+  filter(Value.Item2 == TRUE)
+df1 <- as.data.frame(Grooming1$Frames)
+BaselineTest <- read_csv("240705_r1566_2_baseline_test.csv")
+BaselineTest <- BaselineTest %>%
+  select(!15:24) %>%
+  filter(Value.Item1.Item2>71) %>%
+  rename(pixelx = Value.Item1.Item3.X, pixely = Value.Item1.Item3.Y, TimePoint = Value.Item1.Item2) %>%
+  select(!1, !14)
+BaselineTest <- BaselineTest %>%
+  filter(!TimePoint %in% Grooming1$Frames)
+x3 <- c(BaselineTest$pixelx)
+y3 <- c(BaselineTest$pixely)
+df3 <- data.frame(x = x3, y = y3)
+radius <- 125
+center_x3 <- 324
+center_y3 <- 705
+df3$distance <- sqrt((df3$x - center_x3)^2 + (df3$y - center_y3)^2)
+points_in_circle3 <- sum(df3$distance <= radius)
+print(points_in_circle3)
+center_x3 <- 783
+center_y3 <- 266
+df3$distance1 <- sqrt((df3$x - center_x3)^2 + (df3$y - center_y3)^2)
+points_in_circle3 <- sum(df3$distance1 <= radius)
+print(points_in_circle3)
+Grooming2 <- read_csv("240723_r1566_baseline_5.csv")
+Grooming2 <- Grooming2 %>%
+  mutate(Frames = 0:7750)
+Grooming2 <- Grooming2 %>%
+  filter(Value.Item2 == TRUE)
+#No grooming on this one.
