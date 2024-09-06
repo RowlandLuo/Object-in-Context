@@ -196,9 +196,23 @@ ggplot(NewDF, aes(x = NewPositions)) +
 ObjectinContext %>%
   filter(NewPosition1 == 0|NewPosition2 == 0)
 #r1569, r1589, r1588, r1591
+analysis <- read_csv("Bonsai-IsaRow - Sheet6.csv")
 analysis <- analysis %>%
-  filter(!RatNumber == c("r1569", "r1589", "r1588", "r1591"))
-
+  mutate(RatNumber = factor(RatNumber), 
+         RatAge = factor(RatAge, levels = c("Preweaning", "Postweaning", "Adult")),
+         Environment = factor(Environment, levels = c("baselineS", "similar", "baselineD", "different")))
+analysis <- analysis %>%
+  filter(!RatNumber == "r1569") %>%
+  filter(!RatNumber == "r1589") %>%
+  filter(!RatNumber == "r1588") %>%
+  filter(!RatNumber == "r1591")
+library(rstatix)
+analysis %>%
+  group_by(RatAge) %>%
+  identify_outliers(`Discrimination Score`)
+analysis %>%
+  group_by(Environment) %>%
+  identify_outliers(`Discrimination Score`)
 #Computation
 library(lme4)
 model <- lmer(`Discrimination Score` ~ RatAge * Environment + (1|RatNumber), data = analysis)
@@ -214,5 +228,39 @@ ggboxplot(
   color = "Environment", palette = "jco"
 )
 
+#Exlude climbing rats.
+#r1571, R1572, r1573, r1579, r1580
+library(tidyverse)
+analysis <- read_csv("Bonsai-IsaRow - Sheet6.csv")
+analysis <- analysis %>%
+  mutate(RatNumber = factor(RatNumber), 
+         RatAge = factor(RatAge, levels = c("Preweaning", "Postweaning", "Adult")),
+         Environment = factor(Environment, levels = c("baselineS", "similar", "baselineD", "different")))
+analysis <- analysis %>%
+  filter(!RatNumber == "r1571") %>%
+  filter(!RatNumber == "r1572") %>%
+  filter(!RatNumber == "r1573") %>%
+  filter(!RatNumber == "r1579") %>%
+  filter(!RatNumber == "r1580")
+library(rstatix)
+analysis %>%
+  group_by(RatAge) %>%
+  identify_outliers(`Discrimination Score`)
+analysis %>%
+  group_by(Environment) %>%
+  identify_outliers(`Discrimination Score`)
 
-
+#Computation
+library(lme4)
+model <- lmer(`Discrimination Score` ~ RatAge * Environment + (1|RatNumber), data = analysis)
+summary(model)
+library(emmeans)
+em <- emmeans(model, ~ RatAge * Environment)
+pairs(em, by = "RatAge")
+pairs(em, by = "Environment")
+#Visualization
+library(ggpubr)
+ggboxplot(
+  analysis, x = "RatAge", y = "Discrimination Score",
+  color = "Environment", palette = "jco"
+)
