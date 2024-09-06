@@ -182,6 +182,7 @@ pairs(em, by = "RatAge")
 pairs(em, by = "Environment")
 
 #Excluding low outliers in the learn trials.
+library(tidyverse)
 ObjectinContext <- read_csv("Bonsai-IsaRow - Object-in-context.csv")
 ObjectinContext <- ObjectinContext %>%
   filter(`Trial Type` == "learn") %>%
@@ -200,19 +201,20 @@ analysis <- read_csv("Bonsai-IsaRow - Sheet6.csv")
 analysis <- analysis %>%
   mutate(RatNumber = factor(RatNumber), 
          RatAge = factor(RatAge, levels = c("Preweaning", "Postweaning", "Adult")),
-         Environment = factor(Environment, levels = c("baselineS", "similar", "baselineD", "different")))
+         Environment = factor(Environment, levels = c("baselineS", "similar", "baselineD", "different"))) %>%
+  na.omit
 analysis <- analysis %>%
   filter(!RatNumber == "r1569") %>%
   filter(!RatNumber == "r1589") %>%
   filter(!RatNumber == "r1588") %>%
   filter(!RatNumber == "r1591")
-library(rstatix)
-analysis %>%
-  group_by(RatAge) %>%
-  identify_outliers(`Discrimination Score`)
-analysis %>%
-  group_by(Environment) %>%
-  identify_outliers(`Discrimination Score`)
+#Visualization
+library(ggpubr)
+ggboxplot(
+  analysis, x = "RatAge", y = "Discrimination Score",
+  color = "Environment", palette = "jco"
+)
+
 #Computation
 library(lme4)
 model <- lmer(`Discrimination Score` ~ RatAge * Environment + (1|RatNumber), data = analysis)
@@ -221,12 +223,7 @@ library(emmeans)
 em <- emmeans(model, ~ RatAge * Environment)
 pairs(em, by = "RatAge")
 pairs(em, by = "Environment")
-#Visualization
-library(ggpubr)
-ggboxplot(
-  analysis, x = "RatAge", y = "Discrimination Score",
-  color = "Environment", palette = "jco"
-)
+
 
 #Exlude climbing rats.
 #r1571, R1572, r1573, r1579, r1580
@@ -240,15 +237,18 @@ analysis <- analysis %>%
   filter(!RatNumber == "r1571") %>%
   filter(!RatNumber == "r1572") %>%
   filter(!RatNumber == "r1573") %>%
-  filter(!RatNumber == "r1579") %>%
-  filter(!RatNumber == "r1580")
-library(rstatix)
-analysis %>%
-  group_by(RatAge) %>%
-  identify_outliers(`Discrimination Score`)
-analysis %>%
-  group_by(Environment) %>%
-  identify_outliers(`Discrimination Score`)
+  filter(!RatNumber == "r1598")
+#Visualization
+library(ggpubr)
+ggboxplot(
+  analysis, x = "RatAge", y = "Discrimination Score",
+  color = "Environment", palette = "jco"
+)
+#Delete the one outlier in postweaning baseline D group.
+PBaselineD <- analysis %>%
+  filter(RatAge == "Postweaning") %>%
+  filter(Environment == "baselineD")
+PBaselineD
 
 #Computation
 library(lme4)
@@ -258,9 +258,4 @@ library(emmeans)
 em <- emmeans(model, ~ RatAge * Environment)
 pairs(em, by = "RatAge")
 pairs(em, by = "Environment")
-#Visualization
-library(ggpubr)
-ggboxplot(
-  analysis, x = "RatAge", y = "Discrimination Score",
-  color = "Environment", palette = "jco"
-)
+
