@@ -1,49 +1,199 @@
-Date,Trial Number,Rat Number,Rat Sex,Rat Age,Object 1,Object 2,Environment,Trial Type,Frames at Position 1,Frames at Position 2,NewPosition1,NewPosition2,FirstObjectApproached,SecondsbeforeStart,Notes,,,,,,,,,,,FramePosition,Frames,,Objects,Frames1
-7/5/2024,0,r1566,F,p17,gnome,gnome,baseline,learn,1423,1156,1424,1223,2,3,N/A,,,,,,,,,Grooming,,1,1423,,Gnome,1423
-7/5/2024,1,r1566,F,p17,green jar,green jar,similar,learn,1078,1042,1095,1042,1,3,"The rat is moving faster around the walls, meaning that they have noticed a difference in environment",,,,,,,,,Positional preference,,1,1078,,Gnome,1123
-7/5/2024,2,r1566,F,p17,gnome,green jar,baseline,test,2047,1156,2047,1223,2,3,"Tracking is a little bit problematic in this one. Maybe it is because the corners of the walls are not quite in lign with the camera cropping, but coding showed no problems",,,,,,,,,,,1,701,,Gnome,792
-7/5/2024,0,r1567,F,p17,green jar,green jar,similar,learn,701,763,701,816,2,3,The rat did not explore either objects much.,,,,,,,,,,,1,1123,,Gnome,
-7/5/2024,1,r1567,F,p17,gnome,gnome,baseline,learn,1123,1245,1128,1283,2,4,The rat seemed to explore the objects more in the baseline environment--the environment they are preexposed to,,,,,,,,,,,1,253,,Gnome,1156
-7/5/2024,2,r1567,F,p17,green jar,gnome,similar,test,718,763,741,816,2,3,N/A,,,,,,,,,,,1,792,,Gnome,1245
-7/5/2024,0,r1568,M,p17,green jar,green jar,baseline,learn,253,1022,253,1065,2,3,The rat seemed to explore exclusively the green jar at position 2 but not position 1. Positional preference.,,,,,,,,,,,1,0,,Gnome,1719
-7/5/2024,1,r1568,M,p17,gnome,gnome,similar,learn,792,1719,792,1719,2,4,"Similar to the previous trial, the rat seemed to show a clear position preference toward position 2. Positional preference.",,,,,,,,,,,1,505,,Gnome,771
-7/5/2024,2,r1568,M,p17,gnome,green jar,similar,test,2091,1022,2091,1065,2,3,N/A,,,,,,,,,,,1,400,,GreenJar,1078
-7/5/2024,0,r1569,M,p17,gnome,gnome,similar,learn,0,771,0,771,2,3,The rat did not go to the object at position 1 at all. Positional preference.,,,,,,,,,,,1,1177,,GreenJar,701
-7/5/2024,1,r1569,M,p17,green jar,green jar,baseline,learn,505,1139,505,1139,2,3,Clear position preference at position 2. Positional preference.,,,,,,,,,,,1,730,,GreenJar,253
-7/5/2024,2,r1569,M,p17,green jar,gnome,baseline,test,303,771,369,771,2,2,Clear position preference at position 2. Positional preference.,,,,,,,,,,,1,1467,,GreenJar,505
-7/5/2024,3,r1566,F,p17,wide jar,wide jar,different,learn,400,1901,400,1901,1,3,Tracking is a little bit problematic. It kept tracking the walls of the cylinder. Had to adjust the threshold mid-experiment.,,,,,,,,,,,1,1854,,GreenJar,1042
-7/5/2024,4,r1566,F,p17,seltzer can,seltzer can,baseline,learn,1177,1439,1332,1439,1,3,"The can is opaque and is relatively tall. When the rat put her head behind the can, the tracking would be influenced for a little.",,,,,,,,,,,1,1392,,GreenJar,763
-7/5/2024,5,r1566,F,p17,seltzer can,wide jar,baseline,test,2782,950,2881,950,1,3,Rat seems to be significanly more interested in the can.,,,,,,,,,,,1,989,,GreenJar,1022
-7/5/2024,3,r1567,F,p17,seltzer can,seltzer can,baseline,learn,730,1629,807,1629,1,3,The rat showed slight position preference toward position 2. Positional preference.,,,,,,,,,,,1,957,,GreenJar,1139
-7/5/2024,4,r1567,F,p17,wide jar,wide jar,different,learn,1467,937,1467,937,1,6,The rat showed slight position preference toward position 1. Positional preference.,,,,,,,,,,,2,1156,,WideJar,400
-7/5/2024,5,r1567,F,p17,seltzer can,wide jar,baseline,test,1335,2278,1388,2287,1,3,N/A,,,,,,,,,,,2,1042,,WideJar,1467
-7/5/2024,3,r1568,M,p17,seltzer can,seltzer can,different,learn,1854,1481,1855,1507,2,4,N/A,,,,,,,,,,,2,763,,WideJar,1392
-7/5/2024,4,r1568,M,p17,wide jar,wide jar,baseline,learn,1392,850,1392,911,2,3,N/A,,,,,,,,,,,2,1245,,WideJar,989
-7/5/2024,5,r1568,M,p17,seltzer can,wide jar,different,test,2026,1135,2038,1187,2,3,"Grooming happened at position 2, closer to the wide jar.",,,,,,,,,,,2,1022,,WideJar,1901
-7/5/2024,3,r1569,M,p17,wide jar,wide jar,baseline,learn,989,1755,989,1824,2,2,Grooming happened at position 1,,,,,,,,,,,2,1719,,WideJar,937
-7/5/2024,4,r1569,M,p17,seltzer can,seltzer can,different,learn,957,860,1021,862,1,2,N/A,,,,,,,,,,,2,771,,WideJar,850
-7/5/2024,5,r1569,M,p17,seltzer can,wide jar,different,test,2070,1118,2214,1118,1,2,"Grooming happened at position 2, closer to the wide jar.",,,,,,,,,,,2,1139,,WideJar,1755
-7/11/2024,0,r1570,M,p23,gnome,gnome,baseline,learn,NA,NA,1050,864,1,2,Slight positional preference at position 2. ,,,,,,,,,,,2,1901,,SeltzerCan,1177
-7/11/2024,1,r1570,M,p23,green jar,green jar,similar,learn,NA,NA,1037,736,2,2,NA,,,,,,,,,,,2,1439,,SeltzerCan,730
-7/11/2024,2,r1570,M,p23,green jar,gnome,similar,test,NA,NA,764,864,2,3,NA,,,,,,,,,,,2,1629,,SeltzerCan,1854
-7/11/2024,0,r1571,M,p23,green jar,green jar,similar,learn,NA,NA,NA,NA,2,NA,Climbing on top of the objects at both positions.,,,,,,,,,,,2,937,,SeltzerCan,957
-7/11/2024,1,r1571,M,p23,gnome,gnome,baseline,learn,NA,NA,NA,NA,2,NA,Very brief grooming next to the object at position 2,,,,,,,,,,,2,1481,,SeltzerCan,1439
-7/11/2024,2,r1571,M,p23,gnome,green jar,baseline,test,NA,NA,NA,NA,1,NA,Clmbing on top of position 2 jar for the entire time. We might need to exclude this trial,,,,,,,,,,,2,850,,SeltzerCan,1629
-7/11/2024,0,r1572,F,p23,green jar,green jar,baseline,learn,NA,NA,1812,1358,2,3,"Climbing on top of the objects at position 1, but very briefly.",,,,,,,,,,,2,1755,,SeltzerCan,1481
-7/11/2024,1,r1572,F,p23,gnome,gnome,similar,learn,NA,NA,1774,748,2,4,NA,,,,,,,,,,,2,860,,SeltzerCan,860
-7/11/2024,2,r1572,F,p23,green jar,gnome,baseline ,test,NA,NA,2263,1358,2,3,Climbing on top of the green jar.,,,,,,,,,,,,,,,
-7/11/2024,0,r1573,M,p23,gnome,gnome,similar,learn,NA,NA,1149,1324,1,2,NA,,,,,,,,,,,,,,,
-7/11/2024,1,r1573,M,p23,green jar,green jar,baseline,learn,NA,NA,1424,1034,1,3,NA,,,,,,,,,,,,,,,
-7/11/2024,2,r1573,M,p23,gnome,green jar,similar,test,NA,NA,892,1324,2,2,"Grooming near position 2, but it might be far enough to not be included in the ROI.",,,,,,,,,,,,,,,
-7/11/2024,3,r1570,M,p23,wide jar,wide jar,different,learn,NA,NA,142,1079,2,4,position 2 preference.,,,,,,,,,,,,,,,
-7/11/2024,4,r1570,M,p23,seltzer can,seltzer can,baseline,learn,NA,NA,1069,1050,1,3,Grooming happened around both positions at the beginning of the video.,,,,,,,,,,,,,,,
-7/11/2024,5,r1570,M,p23,wide jar,seltzer can,different,test,NA,NA,583,407,2,3,Grooming happened at position 2.,,,,,,,,,,,,,,,
-7/11/2024,3,r1571,M,p23,seltzer can,seltzer can,baseline,learn,NA,NA,NA,NA,2,NA,Grooming happened at position 2. Climbing on the can at position 2 briefly.,,,,,,,,,,,,,,,
-7/11/2024,4,r1571,M,p23,wide jar,wide jar,different,learn,NA,NA,NA,NA,1,NA,Extensive climbing at both positions. Might have to exclude this entire rat.,,,,,,,,,,,,,,,
-7/11/2024,5,r1571,M,p23,wide jar,seltzer can,different,test,NA,NA,NA,NA,1,NA,Extensive climbing on the jar at position 1. Also sucessfully climbed on the can.,,,,,,,,,,,,,,,
-7/11/2024,3,r1572,F,p23,seltzer can,seltzer can,different,learn,NA,NA,829,2606,1,3,Climbing on the can at position 1 extensively.,,,,,,,,,,,,,,,
-7/11/2024,4,r1572,F,p23,wide jar,wide jar,baseline,learn,NA,NA,2799,2149,1,2,Climbing on the jar at both positions about the equal amount.,,,,,,,,,,,,,,,
-7/11/2024,5,r1572,F,p23,wide jar,seltzer can,baseline,test,NA,NA,1646,3165,2,2,Climbing on the objects at both positions.,,,,,,,,,,,,,,,
-7/11/2024,3,r1573,M,p23,wde jar,wide jar,baseline,learn,NA,NA,2008,2549,2,2,Grooming happened at the jar at position 2. Climbing onto the jar at position 2.,,,,,,,,,,,,,,,
-7/11/2024,4,r1573,M,p23,seltzer can,seltzer can,different ,learn,NA,NA,463,2146,2,2,Grooming happened at the can at position1. ,,,,,,,,,,,,,,,
-7/11/2024,5,r1573,M,p23,wide jar,seltzer can,baseline ,test,NA,NA,2256,3267,2,2,Climbing on top of the objects at both positions.,,,,,,,,,,,,,,,
+Date,Trial Number,Rat Number,Rat Sex,Rat Age,Object 1,Object 2,Environment,Trial Type,NewPosition1,NewPosition2,Position1Ratio,Position2Ratio,DiscriminationScore,FirstObjectApproached,SecondsbeforeStart,Notes,,,,,,,,,,,FramePosition,Frames,,Objects,Frames1
+7/5/2024,0,r1566,F,p17,gnome,gnome,baseline,learn,1424,1223,NA,NA,NA,2,3,N/A,,,,,,,,,Grooming,,1,1423,,Gnome,1423
+7/5/2024,1,r1566,F,p17,green jar,green jar,similar,learn,1095,1042,NA,NA,NA,1,3,"The rat is moving faster around the walls, meaning that they have noticed a difference in environment",,,,,,,,,Positional preference,,1,1078,,Gnome,1123
+7/5/2024,2,r1566,F,p17,gnome,green jar,baselineS,test,2047,892,1.4375,0.7293540474,0.3035045934,2,3,"Tracking is a little bit problematic in this one. Maybe it is because the corners of the walls are not quite in lign with the camera cropping, but coding showed no problems",,,,,,,,,,,1,701,,Gnome,792
+7/5/2024,0,r1567,F,p17,green jar,green jar,similar,learn,701,816,NA,NA,NA,2,3,The rat did not explore either objects much.,,,,,,,,,,,1,1123,,Gnome,
+7/5/2024,1,r1567,F,p17,gnome,gnome,baseline,learn,1128,1283,NA,NA,NA,2,4,The rat seemed to explore the objects more in the baseline environment--the environment they are preexposed to,,,,,,,,,,,1,253,,Gnome,1156
+7/5/2024,2,r1567,F,p17,green jar,gnome,similar,test,741,1600,1.057061341,1.960784314,0.6834686032,2,3,N/A,,,,,,,,,,,1,792,,Gnome,1245
+7/5/2024,0,r1568,M,p17,green jar,green jar,baseline,learn,253,1065,NA,NA,NA,2,3,The rat seemed to explore exclusively the green jar at position 2 but not position 1. Positional preference.,,,,,,,,,,,1,0,,Gnome,1719
+7/5/2024,1,r1568,M,p17,gnome,gnome,similar,learn,792,1719,NA,NA,NA,2,4,"Similar to the previous trial, the rat seemed to show a clear position preference toward position 2. Positional preference.",,,,,,,,,,,1,505,,Gnome,771
+7/5/2024,2,r1568,M,p17,gnome,green jar,similar,test,2091,934,2.640151515,0.5433391507,0.3087603306,2,3,N/A,,,,,,,,,,,1,400,,GreenJar,1078
+7/5/2024,0,r1569,M,p17,gnome,gnome,similar,learn,0,771,NA,NA,,2,3,The rat did not go to the object at position 1 at all. Positional preference.,,,,,,,,,,,1,1177,,GreenJar,701
+7/5/2024,1,r1569,M,p17,green jar,green jar,baseline,learn,505,1139,NA,NA,,2,3,Clear position preference at position 2. Positional preference.,,,,,,,,,,,1,730,,GreenJar,253
+7/5/2024,2,r1569,M,p17,green jar,gnome,baselineS,test,369,3129,NA,NA,0.8945111492,2,2,Clear position preference at position 2. Positional preference.,,,,,,,,,,,1,1467,,GreenJar,505
+7/5/2024,3,r1566,F,p17,wide jar,wide jar,different,learn,400,1901,NA,NA,,1,3,Tracking is a little bit problematic. It kept tracking the walls of the cylinder. Had to adjust the threshold mid-experiment.,,,,,,,,,,,1,1854,,GreenJar,1042
+7/5/2024,4,r1566,F,p17,seltzer can,seltzer can,baseline,learn,1332,1439,NA,NA,,1,3,"The can is opaque and is relatively tall. When the rat put her head behind the can, the tracking would be influenced for a little.",,,,,,,,,,,1,1392,,GreenJar,763
+7/5/2024,5,r1566,F,p17,seltzer can,wide jar,baselineD,test,2881,950,2.162912913,0.660180681,0.2479770295,1,3,Rat seems to be significanly more interested in the can.,,,,,,,,,,,1,989,,GreenJar,1022
+7/5/2024,3,r1567,F,p17,seltzer can,seltzer can,baseline,learn,807,1629,NA,NA,NA,1,3,The rat showed slight position preference toward position 2. Positional preference.,,,,,,,,,,,1,957,,GreenJar,1139
+7/5/2024,4,r1567,F,p17,wide jar,wide jar,different,learn,1467,937,NA,NA,NA,1,6,The rat showed slight position preference toward position 1. Positional preference.,,,,,,,,,,,2,1156,,WideJar,400
+7/5/2024,5,r1567,F,p17,seltzer can,wide jar,baselineD,test,1388,2200,1.719950434,1.350521793,0.613154961,1,3,N/A,,,,,,,,,,,2,1042,,WideJar,1467
+7/5/2024,3,r1568,M,p17,seltzer can,seltzer can,different,learn,1855,1507,NA,NA,NA,2,4,N/A,,,,,,,,,,,2,763,,WideJar,1392
+7/5/2024,4,r1568,M,p17,wide jar,wide jar,baseline,learn,1392,911,NA,NA,NA,2,3,N/A,,,,,,,,,,,2,1245,,WideJar,989
+7/5/2024,5,r1568,M,p17,seltzer can,wide jar,different,test,2038,1182,1.098652291,0.7843397478,0.3670807453,2,3,"Grooming happened at position 2, closer to the wide jar.",,,,,,,,,,,2,1022,,WideJar,1901
+7/5/2024,3,r1569,M,p17,wide jar,wide jar,baseline,learn,989,1824,NA,NA,NA,2,2,Grooming happened at position 1,,,,,,,,,,,2,1719,,WideJar,937
+7/5/2024,4,r1569,M,p17,seltzer can,seltzer can,different,learn,1021,862,NA,NA,NA,1,2,N/A,,,,,,,,,,,2,771,,WideJar,850
+7/5/2024,5,r1569,M,p17,seltzer can,wide jar,different,test,2214,1118,2.168462292,1.296983759,0.3355342137,1,2,"Grooming happened at position 2, closer to the wide jar.",,,,,,,,,,,2,1139,,WideJar,1755
+7/11/2024,0,r1570,M,p23,gnome,gnome,baseline,learn,1050,864,NA,NA,,1,2,Slight positional preference at position 2. ,,,,,,,,,,,2,1901,,SeltzerCan,1177
+7/11/2024,1,r1570,M,p23,green jar,green jar,similar,learn,1037,736,NA,NA,,2,2,NA,,,,,,,,,,,2,1439,,SeltzerCan,730
+7/11/2024,2,r1570,M,p23,green jar,gnome,similar,test,764,1642,0.7367405979,2.230978261,0.6824605154,2,3,NA,,,,,,,,,,,2,1629,,SeltzerCan,1854
+7/11/2024,0,r1571,M,p23,green jar,green jar,similar,learn,NA,NA,NA,NA,,2,NA,Climbing on top of the objects at both positions.,,,,,,,,,,,2,937,,SeltzerCan,957
+7/11/2024,1,r1571,M,p23,gnome,gnome,baseline,learn,NA,NA,NA,NA,,2,NA,Very brief grooming next to the object at position 2,,,,,,,,,,,2,1481,,SeltzerCan,1439
+7/11/2024,2,r1571,M,p23,gnome,green jar,baselineS,test,NA,NA,NA,NA,,1,NA,Clmbing on top of position 2 jar for the entire time. We might need to exclude this trial,,,,,,,,,,,2,850,,SeltzerCan,1629
+7/11/2024,0,r1572,F,p23,green jar,green jar,baseline,learn,1812,1358,NA,NA,,2,3,"Climbing on top of the objects at position 1, but very briefly.",,,,,,,,,,,2,1755,,SeltzerCan,1481
+7/11/2024,1,r1572,F,p23,gnome,gnome,similar,learn,1774,748,NA,NA,,2,4,NA,,,,,,,,,,,2,860,,SeltzerCan,860
+7/11/2024,2,r1572,F,p23,green jar,gnome,baselineS,test,2263,1054,1.248896247,0.7761413844,0.3177570093,2,3,Climbing on top of the green jar.,,,,,,,,,,,,,,,
+7/11/2024,0,r1573,M,p23,gnome,gnome,similar,learn,1149,1324,NA,NA,,1,2,NA,,,,,,,,,,,,,,,
+7/11/2024,1,r1573,M,p23,green jar,green jar,baseline,learn,1424,1034,NA,NA,,1,3,NA,,,,,,,,,,,,,,,
+7/11/2024,2,r1573,M,p23,gnome,green jar,similar,test,892,1714,0.7763272411,1.294561934,0.6577129701,2,2,"Grooming near position 2, but it might be far enough to not be included in the ROI.",,,,,,,,,,,,,,,
+7/11/2024,3,r1570,M,p23,wide jar,wide jar,different,learn,142,1079,NA,NA,,2,4,position 2 preference.,,,,,,,,,,,,,,,
+7/11/2024,4,r1570,M,p23,seltzer can,seltzer can,baseline,learn,1069,1050,NA,NA,,1,3,Grooming happened around both positions at the beginning of the video.,,,,,,,,,,,,,,,
+7/11/2024,5,r1570,M,p23,wide jar,seltzer can,different,test,583,407,4.105633803,0.3772011121,0.4111111111,2,3,Grooming happened at position 2.,,,,,,,,,,,,,,,
+7/11/2024,3,r1571,M,p23,seltzer can,seltzer can,baseline,learn,NA,NA,NA,NA,,2,NA,Grooming happened at position 2. Climbing on the can at position 2 briefly.,,,,,,,,,,,,,,,
+7/11/2024,4,r1571,M,p23,wide jar,wide jar,different,learn,NA,NA,NA,NA,,1,NA,Extensive climbing at both positions. Might have to exclude this entire rat.,,,,,,,,,,,,,,,
+7/11/2024,5,r1571,M,p23,wide jar,seltzer can,different,test,NA,NA,NA,NA,,1,NA,Extensive climbing on the jar at position 1. Also sucessfully climbed on the can.,,,,,,,,,,,,,,,
+7/11/2024,3,r1572,F,p23,seltzer can,seltzer can,different,learn,829,2606,NA,NA,,1,3,Climbing on the can at position 1 extensively.,,,,,,,,,,,,,,,
+7/11/2024,4,r1572,F,p23,wide jar,wide jar,baseline,learn,2799,2149,NA,NA,,1,2,Climbing on the jar at both positions about the equal amount.,,,,,,,,,,,,,,,
+7/11/2024,5,r1572,F,p23,wide jar,seltzer can,baselineD,test,1646,3165,0.5880671668,1.472778036,0.6578673872,2,2,Climbing on the objects at both positions.,,,,,,,,,,,,,,,
+7/11/2024,3,r1573,M,p23,wde jar,wide jar,baseline,learn,2008,2549,NA,NA,,2,2,Grooming happened at the jar at position 2. Climbing onto the jar at position 2.,,,,,,,,,,,,,,,
+7/11/2024,4,r1573,M,p23,seltzer can,seltzer can,different ,learn,463,2146,NA,NA,,2,2,Grooming happened at the can at position1. ,,,,,,,,,,,,,,,
+7/11/2024,5,r1573,M,p23,wide jar,seltzer can,baselineD,test,2256,3267,1.123505976,1.28167909,0.5915263444,2,2,Climbing on top of the objects at both positions.,,,,,,,,,,,,,,,
+7/25/2024,0,r1578,F,adult,green jar,green jar,similar,learn,935,850,,,,,,Tracked the sleeve at the first few videos so I need to manually cut the first few seconds off.,,,,,,,,,,,,,,,
+7/25/2024,1,r1578,F,adult,gnome,gnome,baselineS,learn,313,1202,,,,,,Climbed on top of the object at position 1 really briefly.,,,,,,,,,,,,,,,
+7/25/2024,2,r1578,F,adult,green jar,gnome,similar,test,348,687,,,0.6637681159,,,NA,,,,,,,,,,,,,,,
+7/25/2024,0,r1579,F,adult,gnome,gnome,baselineS,learn,1042,800,,,,,,"Climbing on top of both objects. From now on, I will need to open the grooming button on learning trials",,,,,,,,,,,,,,,
+7/25/2024,1,r1579,F,adult,green jar,green jar,similar,learn,832,1064,,,,,,Climbing on top of the jar on the jar at posiyion 1 very briefly.,,,,,,,,,,,,,,,
+7/25/2024,2,r1579,F,adult,green jar,gnome,similar,test,405,1758,,,0.8127600555,,,NA,,,,,,,,,,,,,,,
+7/25/2024,0,r1580,F,adult,gnome,gnome,similar,learn,1034,1008,,,,,,Climbing a lot on both positions.,,,,,,,,,,,,,,,
+7/25/2024,1,r1580,F,adult,green jar,green jar,baselineS,learn,1273,1368,,,,,,Climbing on the jar at position 1 very briefly. The grroming is probably not that accurate in this trial,,,,,,,,,,,,,,,
+7/25/2024,2,r1580,F,adult,green jar,gnome,baselineS,test,1059,1511,,,0.5879377432,,,Grooming reversed. Grooming close to position 2. Need to manually do the grooming on this one.,,,,,,,,,,,,,,,
+7/25/2024,0,r1581,F,adult,green jar,green jar,baselineS,learn ,1019,1114,,,,,,Grooming worked on this one!,,,,,,,,,,,,,,,
+7/25/2024,1,r1581,F,adult,gnome,gnome,similar,learn,857,880,,,,,,NA,,,,,,,,,,,,,,,
+7/25/2024,2,r1581,F,adult,green jar,gnome,baselineS,test,1305,612,,,0.3192488263,,,Grooming also worked on this one!,,,,,,,,,,,,,,,
+7/25/2024,3,r1578,F,adult,wide jar,wide jar,different,learn,393,284,,,,,,Grooming column did not work. The tracking was also lost for the first few seconds.,,,,,,,,,,,,,,,
+7/25/2024,4,r1578,F,adult,seltzer can,seltzer can,baselineD,learn,14,682,,,,,,Not moving at all. She was sitting at the loweer left corner near object 2 for the entire time.,,,,,,,,,,,,,,,
+7/25/2024,5,r1578,F,adult,wide jar,seltzer can,different,test,216,453,,,0.6771300448,,,Not moving. Mostly stayed at the can at position 2. We might have to exclude this rat.,,,,,,,,,,,,,,,
+7/25/2024,3,r1579,F,adult,wide jar,wide jar,different,learn,953,1088,,,,,,Good learning trial. The grooming column worked.,,,,,,,,,,,,,,,
+7/25/2024,4,r1579,F,adult,seltzer can,seltzer can,baselineD,learn,554,851,,,,,,"The grooming column worked on this trial. Include all non-explorative behaviors as ""grooming"".",,,,,,,,,,,,,,,
+7/25/2024,5,r1579,F,adult,seltzer can,wide jar,baselineD,test,98,935,,,0.9051306873,,,"The grooming column worked on this trial. Despite grooming, the rat seems to spend more time at the position 2 object.",,,,,,,,,,,,,,,
+7/25/2024,3,r1580,F,adult,wide jar,wide jar,baselineD,learn,1492,1038,,,,,,This rat and the previous two rats all seem to show low motor activities in the afternoon.,,,,,,,,,,,,,,,
+7/25/2024,4,r1580,F,adult,seltzer can,seltzer can,different,learn,529,902,,,,,,Climbing on the object at position 2 very briefly.,,,,,,,,,,,,,,,
+7/25/2024,5,r1580,F,adult,seltzer can,wide jar,different,test,349,1773,,,0.8355325165,,,Spent significantly more time at object at position 2. ,,,,,,,,,,,,,,,
+7/25/2024,3,r1581,F,adult,wide jar,wide jar,baselineD,learn,618,1296,,,,,,Grooming column worked on this trial! ,,,,,,,,,,,,,,,
+7/25/2024,4,r1581,F,adult,seltzer can,seltzer can,different,learn,258,4749,,,,,,The rat was quite stationary for the entire time near object at position 2.,,,,,,,,,,,,,,,
+7/25/2024,5,r1581,F,adult,wide jar,seltzer can,baselineD,test,8,245,,,0.9683794466,,,"Again, the rat went sraight to object at positiobn 2, and she seems to spend more time there too.",,,,,,,,,,,,,,,
+7/26/2024,0,r1524,F,adult,gnome,gnome,baselineS,learn,673,1009,,,,,,NA,,,,,,,,,,,,,,,
+7/26/2024,1,r1524,F,adult,green jar,green jar,similar,learn,531,648,,,,,,NA,,,,,,,,,,,,,,,
+7/26/2024,2,r1524,F,adult,green jar,gnome,similar,test,128,786,,,0.8599562363,,,"The centroid of this rat is further back due to a large black spot on its back. So when analyzing, I might need to enlarge the radius.",,,,,,,,,,,,,,,
+7/26/2024,3,r1524,F,adult,seltzer can,seltzer can,baselineD,learn,246,1103,,,,,,NA,,,,,,,,,,,,,,,
+7/26/2024,4,r1524,F,adult,wide jar,wide jar,different,learn,1528,762,,,,,,NA,,,,,,,,,,,,,,,
+7/26/2024,5,r1524,F,adult,seltzer can,wide jar,baselineD,test,628,644,,,0.5062893082,,,NA,,,,,,,,,,,,,,,
+7/30/2024,0,r1584,F,p18,seltzer can,seltzer can,baselineD,learn,615,1534,,,,,,I may need to manually cut out the first few seconds of the video due to my arm being tracked.,,,,,,,,,,,,,,,
+7/30/2024,1,r1584,F,p18,wide jar,wide jar,different ,learn,1255,1051,,,,,,NA,,,,,,,,,,,,,,,
+7/30/2024,2,r1584,F,p18,wide jar,seltzer can,different,test,1184,2635,,,0.6899711966,,,NA,,,,,,,,,,,,,,,
+7/30/2024,0,r1585,M,p18,wide jar,wide jar,different ,learn,1157,403,,,,,,NA,,,,,,,,,,,,,,,
+7/30/2024,1,r1585,M,p18,seltzer can,seltzer can ,baselineD,learn,1473,326,,,,,,Grooming happened and successfully labeled.,,,,,,,,,,,,,,,
+7/30/2024,2,r1585,M,p18,seltzer can,wide jar,baselineD,test,603,2106,,,0.7774086379,,,NA,,,,,,,,,,,,,,,
+7/30/2024,0,r1586,F,p18,seltzer can,seltzer can ,baselineD,learn,702,998,,,,,,Tracking is a little bit off for this one. We changed the minimum pixels from 100 to 60 and it became better.,,,,,,,,,,,,,,,
+7/30/2024,1,r1586,F,p18,wide jar,wide jar,different,learn,115,974,,,,,,Forgot to switch the object-context pair. So tomorrow's experiment I will need to do three time same object-environment pair but opposite of today.,,,,,,,,,,,,,,,
+7/30/2024,2,r1586,F,p18,seltzer can,wide jar,baselineD,test,1329,863,,,0.3937043796,,,Grooming happened near object at position 1.The rat also didn't seem to show increased interest in either object.,,,,,,,,,,,,,,,
+7/30/2024,0,r1587,F,p18,seltzer can ,seltzer can,different,learn ,1236,1522,,,,,,NA,,,,,,,,,,,,,,,
+7/30/2024,1,r1587,F,p18,wide jar,wide jar,baselineD,learn,1450,899,,,,,,NA,,,,,,,,,,,,,,,
+7/30/2024,2,r1587,F,p18,seltzer can,wide jar,different,test,2496,794,,,0.241337386,,,The rat explore object 1 significantly more. which is a negative result.,,,,,,,,,,,,,,,
+7/30/2024,3,r1584,F,p18,green jar,green jar,similar,learn,828,646,,,,,,NA,,,,,,,,,,,,,,,
+7/30/2024,4,r1584,F,p18,gnome,gnome,baselineS,learn,1404,988,,,,,,NA,,,,,,,,,,,,,,,
+7/30/2024,5,r1584,F,p18,gnome,green jar,baselineS,test,1418,1220,,,0.4624715694,,,"The rat seems to explore the novel object at position 2 more, so it might be a positive result.",,,,,,,,,,,,,,,
+7/30/2024,3,r1585,M,p18,gnome,gnome,baselineS,learn,823,1692,,,,,,NA,,,,,,,,,,,,,,,
+7/30/2024,4,r1585,M,p18,green jar,green jar,similar,learn,535,1108,,,,,,NA,,,,,,,,,,,,,,,
+7/30/2024,5,r1585,M,p18,green jar,gnome,similar,test,666,2317,,,0.7767348307,,,This definitely seems like a positive result. Grooming happened for some periods.,,,,,,,,,,,,,,,
+7/30/2024,3,r1586,F,p18,green jar,green jar,baselineS,learn ,847,1021,,,,,,NA,,,,,,,,,,,,,,,
+7/30/2024,4,r1586,F,p18,gnome,gnome,similar,learn,1307,626,,,,,,NA,,,,,,,,,,,,,,,
+7/30/2024,5,r1586,F,p18,green jar,gnome,baselineS,test,509,2386,,,0.82417962,,,Grooming happened at position 2. Definitely seems like a positive result again.,,,,,,,,,,,,,,,
+7/30/2024,3,r1587,F,p18,gnome,gnome,similar,learn,1177,731,,,,,,NA,,,,,,,,,,,,,,,
+7/30/2024,4,r1587,F,p18,green jar,green jar,baselineS,learn,2552,1281,,,,,,NA,,,,,,,,,,,,,,,
+7/30/2024,5,r1587,F,p18,gnome,green jar,similar,test,870,1304,,,0.5998160074,,,It seems like the rats explore the two objects equal amount. She might have explored position 2 a little bit more.,,,,,,,,,,,,,,,
+7/31/2024,0,r1588,M,p17,green jar,green jar,similar,learn,226,376,,,,,,The rat mostly just stayed at the top right corner. Exhibited a lot of wall hugging behavior. Not sure it is going to meet the minimum cutout.,,,,,,,,,,,,,,,
+7/31/2024,1,r1588,M,p17,gnome,gnome,baselineS,learn,1134,14,,,,,,"Again, the rat stayed mostly at the upper right corner and not moving much. It explores object 1 but not object 2. Again not sure if it will make the minimum visitation cutout.",,,,,,,,,,,,,,,
+7/31/2024,2,r1588,M,p17,gnome,green jar,baselineS,test,53,129,,,0.7087912088,,,Similar things happened again --- the rat sits in the top right corner for the majority of time. Could it be because the rat is very small and seemingly younger than the rest of the cohort?,,,,,,,,,,,,,,,
+7/31/2024,0,r1589,F,p17,gnome,gnome,baselineS,learn,467,287,,,,,,NA,,,,,,,,,,,,,,,
+7/31/2024,1,r1589,F,p17,green jar,green jar,similar,learn,0,549,,,,,,This is a little concerning. The rat did not explore the object at position 1 at all. We might need to exclude this one.,,,,,,,,,,,,,,,
+7/31/2024,2,r1589,F,p17,gnome,green jar,baselineS,test,1597,1306,,,0.4498794351,,,Grooming briefly happened at position 1. The rat explored both objects but probably slightly more on position 1. So it might not be a positive result.,,,,,,,,,,,,,,,
+7/31/2024,0,r1590,F,p17,gnome,gnome,similar,learn,NA,NA,,,,,,NA,,,,,,,,,,,,,,,
+7/31/2024,1,r1590,F,p17,green jar,green jar,baselineS,lean,NA,NA,,,,,,NA,,,,,,,,,,,,,,,
+7/31/2024,2,r1590,F,p17,gnome,green jar,similar,test,NA,NA,,,,,,Might have to exclude this rat unfortunately. The rat did not move at all during this test trial.,,,,,,,,,,,,,,,
+7/31/2024,0,r1591,M,p17,green jar,green jar,baselineS,learn,116,457,,,,,,NA,,,,,,,,,,,,,,,
+7/31/2024,1,r1591,M,p17,gnome,gnome,similar,learn,952,745,,,,,,NA,,,,,,,,,,,,,,,
+7/31/2024,2,r1591,M,p17,gnome,green jar,similar,test,1400,1439,,,0.5068686157,,,The rat explored the two objects about the same amount. This rat is the only rat that showed desired behaviors for the experiment.,,,,,,,,,,,,,,,
+7/31/2024,3,r1588,M,p17,seltzer can,seltzer can,baselineD,learn,675,463,,,,,,NA,,,,,,,,,,,,,,,
+7/31/2024,4,r1588,M,p17,wide jar,wide jar,different,learn,0,756,,,,,,The rat again has low mobility issue. He did not visit the object at position 1 at all. This rat might have to be excluded too.,,,,,,,,,,,,,,,
+7/31/2024,5,r1588,M,p17,wide jar,seltzer can,different,test,345,2062,,,0.8566680515,,,The rat visited position 2 more. But this rat is likely going to be excluded.,,,,,,,,,,,,,,,
+7/31/2024,3,r1589,F,p17,wide jar,wide jar,baselineD,learn,851,2509,,,,,,The rat exhibited good explorative behavior in this trial but this rat is likely to be excluded too.,,,,,,,,,,,,,,,
+7/31/2024,4,r1589,F,p17,seltzer can,seltzer can,different,learn,2295,2339,,,,,,"Again, this rat showed very good exploratory behaviors in this learn trial.",,,,,,,,,,,,,,,
+7/31/2024,5,r1589,F,p17,wide jar,seltzer can ,baselineD,test,1283,1539,,,0.5453579022,,,The rat visited the two objects roughly equal amount.,,,,,,,,,,,,,,,
+7/31/2024,3,r1590,F,p17,seltzer can ,seltzer can,different,learn,NA,NA,,,,,,"The rat showed very good exploratory behavior. Unfortunately, this is a rat that we need to exclude too.",,,,,,,,,,,,,,,
+7/31/2024,4,r1590,F,p17,wide jar,wide jar,baselineD,learn,NA,NA,,,,,,The rat again showed good exploratory behavior in this learn trial.,,,,,,,,,,,,,,,
+7/31/2024,5,r1590,F,p17,seltzer can,wide jar,different,test,NA,NA,,,,,,It is hard to tell but the rat might explore the novel object a little bit more.,,,,,,,,,,,,,,,
+7/31/2024,3,r1591,M,p17,seltzer can,seltzer can,different,learn,0,1425,,,,,,It is really sad that the rat did not explore the object at position 1 at all.,,,,,,,,,,,,,,,
+7/31/2024,4,r1591,M,p17,wide jar,wide jar,baselineD,learn,974,2339,,,,,,"The rat showed good exploratory behaviors. But since it did not explore the position 1 object in the previous trial, this one might be excluded too.",,,,,,,,,,,,,,,
+7/31/2024,5,r1591,M,p17,wide jar,seltzer can,baselineD,test,526,4232,,,0.8894493485,,,This is an extremely positive result!,,,,,,,,,,,,,,,
+8/8/2024,0,r1592,F,p26,seltzer can,seltzer can,baselineD,learn,521,345,,,,,,No climbing and the rat showed good exploratory behaviors.,,,,,,,,,,,,,,,
+8/8/2024,1,r1592,F,p26,wide jar,wide jar,different,learn,666,462,,,,,,"The rat showed good exploratory behaviors at the beginning, but it stopped moving and became immobile after a few minutes.",,,,,,,,,,,,,,,
+8/8/2024,2,r1592,F,p26,seltzer can,wide jar,baselineD,test,143,465,,,0.7648026316,,,The animal might have explored the novel object a little bit more.,,,,,,,,,,,,,,,
+8/8/2024,0,r1593,M,p26,wide jar,wide jar,different,learn,596,1280,,,,,,The exploratory behavior is good but the rat showed a relatively strong positional preference toward position 2.,,,,,,,,,,,,,,,
+8/8/2024,1,r1593,M,p26,seltzer can,seltzer can,baselineD,learn,539,1177,,,,,,Good exploratory behaviors and only a slight positional preference toward position 2.,,,,,,,,,,,,,,,
+8/8/2024,2,r1593,M,p26,wide jar,seltzer can,different,test,599,2550,,,0.8097808828,,,This is a very positive result.,,,,,,,,,,,,,,,
+8/8/2024,0,r1594,M,p26,wide jar,wide jar,baselineD,learn,2050,1087,,,,,,Very good explorarory behavior. A slight positional preference at position 1.,,,,,,,,,,,,,,,
+8/8/2024,1,r1594,M,p26,seltzer can,seltzer can,different,learn,457,1827,,,,,,Good exploratory behavior with a slight positional preference at position 1.,,,,,,,,,,,,,,,
+8/8/2024,2,r1594,M,p26,seltzer can,wide jar,different,test,767,1043,,,0.5762430939,,,This also looks like a positive result although not very strong.,,,,,,,,,,,,,,,
+8/8/2024,0,r1595,M,p26,seltzer can,seltzer can,different,learn,1058,1938,,,,,,Very good exploratory behaviors.,,,,,,,,,,,,,,,
+8/8/2024,1,r1595,M,p26,wide jar,wide jar,baselineD,learn,1683,1625,,,,,,"Again, very good behaviors. The rat was moving very fast in the environment.",,,,,,,,,,,,,,,
+8/8/2024,2,r1595,M,p26,wide jar,seltzer can,baselineD,test,767,3211,,,0.8071895425,,,"This is a very positive results! Although toward the very end of the trial, the rat started to nibble on the blue tag at position 2.",,,,,,,,,,,,,,,
+8/8/2024,3,r1592,F,p26,gnome,gnome,baselineS,learn,216,1475,,,,,,Good exploratory behaviors and slight positional preference at position 2.,,,,,,,,,,,,,,,
+8/8/2024,4,r1592,F,p26,green jar,green jar,similar,learn,377,1865,,,,,,Positional peference at position 2.,,,,,,,,,,,,,,,
+8/8/2024,5,r1592,F,p26,gnome,green jar,baselineS,test,1692,481,,,0.2213529682,,,"The rat stayed at position 1 more, but she is mostly immobile at position1 and I have used the groom button to largely exclude the grooming and immobile time.",,,,,,,,,,,,,,,
+8/8/2024,3,r1593,M,p26,green jar,green jar,similar,learn,1010,1529,,,,,,Positional preference at position 2. ,,,,,,,,,,,,,,,
+8/8/2024,4,r1593,M,p26,gnome,gnome,baselineS,learn,1825,3310,,,,,,Good exploratory behaviors.,,,,,,,,,,,,,,,
+8/8/2024,5,r1593,M,p26,green jar,gnome,similar,test,412,3880,,,0.9040074557,,,"Very positive results, although the rat mostly stayed immobile. I have excluded immobility as much as possible.",,,,,,,,,,,,,,,
+8/8/2024,3,r1594,M,p26,green jar,green jar,baselineS,learn,521,1282,,,,,,Very good exploratory behaviors.,,,,,,,,,,,,,,,
+8/8/2024,4,r1594,M,p26,gnome,gnome,similar,learn,1107,672,,,,,,Good Exploratory behavior,,,,,,,,,,,,,,,
+8/8/2024,5,r1594,M,p26,gnome,green jar,similar,test,1346,660,,,0.3290129611,,,This doesn't look like a positive result. the rat stayed at position 1 significantly more.,,,,,,,,,,,,,,,
+8/8/2024,3,r1595,M,p26,gnome,gnome,similar,learn,576,1054,,,,,,Positional preference at position 2. The rat has a lot of grooming behaviors,,,,,,,,,,,,,,,
+8/8/2024,4,r1595,M,p26,green jar,green jar,baselineS,learn,779,2240,,,,,,Relatively good behavior.,,,,,,,,,,,,,,,
+8/8/2024,5,r1595,M,p26,green jar,gnome,baselineS,test,1575,641,,,0.2892599278,,,"Not sure if iit is a positive result. The rat became immobile. Duirng the entire afternoon session, this rat keeps jumping out of the cage and I guess he is physically exhausted at this point.",,,,,,,,,,,,,,,
+8/9/2024,0,r1596,M,p25,green jar,green jar,similar,learn,2331,1057,,,,,,Good exploratory behaviors.,,,,,,,,,,,,,,,
+8/9/2024,1,r1596,M,p25,gnome,gnome,baselineS,learn,1281,1820,,,,,,Very good exploratory behaviors.,,,,,,,,,,,,,,,
+8/9/2024,2,r1596,M,p25,green jar,gnome,similar,test,492,2187,,,0.8163493841,,,This seems like a positive result!,,,,,,,,,,,,,,,
+8/9/2024,0,r1597,M,p25,gnome,gnome,baselineS,learn,623,989,,,,,,"Relatively good exploratory behaviors, a lot of grooming at position 2.",,,,,,,,,,,,,,,
+8/9/2024,1,r1597,M,p25,green jar,green jar,similar,learn,885,730,,,,,,Good exploratory behaviors,,,,,,,,,,,,,,,
+8/9/2024,2,r1597,M,p25,green jar,gnome,similar,test,1598,766,,,0.3240270728,,,This doesn't look like a positive result though there are a lot of grooming behaviors at position 1.,,,,,,,,,,,,,,,
+8/9/2024,0,r1598,F,p25,gnome,gnome,similar,learn,1588,990,,,,,,Good exploratory behaviors.,,,,,,,,,,,,,,,
+8/9/2024,1,r1598,F,p25,green jar,green jar,baselineS,learn,1380,2637,,,,,,"Good exploratory behaviors, though might have a slight positional preference at position 2",,,,,,,,,,,,,,,
+8/9/2024,2,r1598,F,p25,green jar,gnome,baselineS,test,1166,2093,,,0.6422215403,,,"Might be a slight positive result, but we don't know for sure because there is a lot of grooming behavior at position 1.",,,,,,,,,,,,,,,
+8/9/2024,0,r1599,F,p25,green jar,green jar,baselineS,learn,1066,1198,,,,,,Good exploratory behaviors.,,,,,,,,,,,,,,,
+8/9/2024,1,r1599,F,p25,gnome,gnome,similar,learn,760,1852,,,,,,Moderately good exploratory behaviors.,,,,,,,,,,,,,,,
+8/9/2024,2,r1599,F,p25,green jar,gnome,baselineS,test,863,1737,,,0.6680769231,,,Looks like a positive result.,,,,,,,,,,,,,,,
+8/9/2024,3,r1596,M,p25,wide jar,wide jar,different ,learn ,895,2493,,,,,,The rat displayed a relatively strong positional preference at position 2.,,,,,,,,,,,,,,,
+8/9/2024,4,r1596,M,p25,seltzer can,seltzer can,baselineD,learn,1302,2556,,,,,,Good exploratory behaviors.,,,,,,,,,,,,,,,
+8/9/2024,5,r1596,M,p25,wide jar,seltzer can ,different,test,515,2518,,,0.830201121,,,"Looks like an extremely positive result, there is extensive grooming though near the object at position 2.",,,,,,,,,,,,,,,
+8/9/2024,3,r1597,M,p25,seltzer can,seltzer can ,baselineD,learn,818,1518,,,,,,"Good exploratory behaviors, the rat moves very fast.",,,,,,,,,,,,,,,
+8/9/2024,4,r1597,M,p25,wide jar,wide jar,different ,learn,912,1992,,,,,,Good exploratory behaviors with a moderate positional preference toward position 2.,,,,,,,,,,,,,,,
+8/9/2024,5,r1597,M,p25,wide jar,seltzer can,different,test,1212,2464,,,0.6702937976,,,It is hard to tell on the graph but I think this also looks like a positive result.,,,,,,,,,,,,,,,
+8/9/2024,3,r1598,F,p25,seltzer can,seltzer can,different,learn,1055,2795,,,,,,The rat is nibbling on the blu tack quite a lot on the seltzer can. I need to hide it under a little bit more.,,,,,,,,,,,,,,,
+8/9/2024,4,r1598,F,p25,wide jar,wide jar,baselineD,learn,1897,1491,,,,,,Very good exploratory behaviors.,,,,,,,,,,,,,,,
+8/9/2024,5,r1598,F,p25,wide jar,seltzer can,baselineD,test,1947,1242,,,0.3894637817,,,This doesn't look like a positive result. ,,,,,,,,,,,,,,,
+8/9/2024,3,r1599,F,p25,wide jar,wide jar,baselineD,learn,946,2495,,,,,,Good exploratory behaviors with a slight positional preference at position 2.,,,,,,,,,,,,,,,
+8/9/2024,4,r1599,F,p25,seltzer can,seltzer can,different,learn,1369,2020,,,,,,Very good exploratory behaviors.,,,,,,,,,,,,,,,
+8/9/2024,5,r1599,F,p25,wide jar,seltzer can,baselineD,test,479,1781,,,0.7880530973,,,This seems like a positive result to me!,,,,,,,,,,,,,,,
+8/16/2024,0,r1558,M,adult,seltzer can,seltzer can,baselineD,learn,793,1035,,,,,,The rat pooped a lot. But he exhibited good exploratory behaviors.,,,,,,,,,,,,,,,
+8/16/2024,1,r1558,M,adult,wide jar,wide jar,different,learn,596,1241,,,,,,The rat showed good exploratory behaviors. ,,,,,,,,,,,,,,,
+8/16/2024,2,r1558,M,adult,wide jar,seltzer can,different,test,1509,2136,,,0.5860082305,,,"The result is ambiguous, since the rat stayed immobile at each object for relatively long time.",,,,,,,,,,,,,,,
+8/16/2024,0,r1561,M,adult,wide jar,wide jar,different,learn,1723,1499,,,,,,The rat exhibited very good exploratory behaviors.,,,,,,,,,,,,,,,
+8/16/2024,1,r1561,M,adult,seltzer can,seltzer can,baselineD,learn,1193,2053,,,,,,The rat exhibited very good exploratory behaviors.,,,,,,,,,,,,,,,
+8/16/2024,2,r1561,M,adult,seltzer can,wide jar,baselineD,test,572,2996,,,0.8396860987,,,This is an extrenely positive result!,,,,,,,,,,,,,,,
+8/16/2024,0,r1562,M,adult,wide jar,wide jar,baselineD,learn,1306,2268,,,,,,The rat showed good exploratory behaviors.,,,,,,,,,,,,,,,
+8/16/2024,1,r1562,M,adult,seltzer can,seltzer can,different,learn,1120,1676,,,,,,The rat showed very good exploratory behaviors.,,,,,,,,,,,,,,,
+8/16/2024,2,r1562,M,adult,wide jar,seltzer can,baselineD,test,1814,2201,,,0.5481942715,,,The experiment was slightly interrupted.. someone was knocking on the door and it might have disturbed the rat a little bit. The result is ambiguous.,,,,,,,,,,,,,,,
+8/16/2024,0,r1563,M,adult,seltzer can,seltzer can,different,learn,1344,1603,,,,,,The rat exhibited good exploratory behaviors.,,,,,,,,,,,,,,,
+8/16/2024,1,r1563,M,adult,wide jar,wide jar,baselineD,learn,1492,603,,,,,,The rat exhibited good exploratory behaviors.,,,,,,,,,,,,,,,
+8/16/2024,2,r1563,M,adult,seltzer can,wide jar,different,test,2778,688,,,0.1984997115,,,This is not a positive result.,,,,,,,,,,,,,,,
+8/16/2024,3,r1558,M,adult,gnome,gnome,baselineS,learn,2585,993,,,,,,Good exploratory behavior.,,,,,,,,,,,,,,,
+8/16/2024,4,r1558,M,adult,green jar,green jar,similar,learn,2473,537,,,,,,"The rat did not explore the objects as much, but he explored both objects for reasonable amount of time. ",,,,,,,,,,,,,,,
+8/16/2024,5,r1558,M,adult,green jar,gnome,similar,test,1515,2315,,,0.6044386423,,,The result is ambiguous.,,,,,,,,,,,,,,,
+8/16/2024,3,r1561,M,adult,green jar,green jar,similar,learn,1174,1847,,,,,,Very good exploratory behaviors.,,,,,,,,,,,,,,,
+8/16/2024,4,r1561,M,adult,gnome,gnome,baselineS,learn,286,3105,,,,,,"Strong positional preference at position 2, a lot of grooming at position 2 too.",,,,,,,,,,,,,,,
+8/16/2024,5,r1561,M,adult,gnome,green jar,baselineS,test,1106,2021,,,0.6463063639,,,"This looks like a positive result to me, although the rat stayed at position 2 immobile for a period of time.",,,,,,,,,,,,,,,
+8/16/2024,3,r1562,M,adult,green jar,green jar,baselineS,learn,1040,4474,,,,,,Very good exploratory behaviors.,,,,,,,,,,,,,,,
+8/16/2024,4,r1562,M,adult,gnome,gnome,similar,learn,1086,2226,,,,,,The centroid of this rat is further back! Need to adjust the radius of ROI.,,,,,,,,,,,,,,,
+8/16/2024,5,r1562,M,adult,green jar,gnome,baselineS,test,1130,3737,,,0.7678241216,,,This is an extremely positive result!,,,,,,,,,,,,,,,
+8/16/2024,3,r1563,M,adult,gnome,gnome,similar,learn,1504,1123,,,,,,Very good exploratory behaviors.,,,,,,,,,,,,,,,
+8/16/2024,4,r1563,M,adult,green jar,green jar,baselineS,learn,566,5400,,,,,,A lot of grooming at position 2.,,,,,,,,,,,,,,,
+8/16/2024,5,r1563,M,adult,gnome,green jar,similar,test,2415,1405,,,0.3678010471,,,The rat seems to explore the two objects the equal amount.,,,,,,,,,,,,,,,

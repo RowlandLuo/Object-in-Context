@@ -180,3 +180,39 @@ library(emmeans)
 em <- emmeans(model, ~ RatAge * Environment)
 pairs(em, by = "RatAge")
 pairs(em, by = "Environment")
+
+#Excluding low outliers in the learn trials.
+ObjectinContext <- read_csv("Bonsai-IsaRow - Object-in-context.csv")
+ObjectinContext <- ObjectinContext %>%
+  filter(`Trial Type` == "learn") %>%
+  select(`Rat Number`,NewPosition1, NewPosition2)
+NewPositions <- c(ObjectinContext$NewPosition1, ObjectinContext$NewPosition2) %>%
+  na.omit
+NewDF <- data.frame(FrameNumbers = NewPositions)
+ggplot(NewDF, aes(x = NewPositions)) +
+  geom_histogram(binwidth = 150) +
+  labs(title = "Histogram of Frames at Both Positions", x = "Number of Frames")
+#There are outliers on the larger end but not the smaller end. So I will just exclude any rats with 0.
+ObjectinContext %>%
+  filter(NewPosition1 == 0|NewPosition2 == 0)
+#r1569, r1589, r1588, r1591
+analysis <- analysis %>%
+  filter(!RatNumber == c("r1569", "r1589", "r1588", "r1591"))
+
+#Computation
+library(lme4)
+model <- lmer(`Discrimination Score` ~ RatAge * Environment + (1|RatNumber), data = analysis)
+summary(model)
+library(emmeans)
+em <- emmeans(model, ~ RatAge * Environment)
+pairs(em, by = "RatAge")
+pairs(em, by = "Environment")
+#Visualization
+library(ggpubr)
+ggboxplot(
+  analysis, x = "RatAge", y = "Discrimination Score",
+  color = "Environment", palette = "jco"
+)
+
+
+
