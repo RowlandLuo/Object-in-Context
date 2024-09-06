@@ -112,4 +112,71 @@ p4 <- ggplot(summary_data1, aes(x = Positions, y = mean_frames, color = Environm
   facet_wrap(~RatAge)
 #OKay, this is a mixed model ANOVA and I need to redo the analysis.
 
+#Mixed Effect Model.
+library(tidyverse)
+analysis <- read_csv("Bonsai-IsaRow - Sheet6.csv")
+analysis <- analysis %>%
+  mutate(RatNumber = factor(RatNumber), 
+         RatAge = factor(RatAge, levels = c("Preweaning", "Postweaning", "Adult")),
+         Environment = factor(Environment, levels = c("baselineS", "similar", "baselineD", "different")))
+analysis <- analysis %>% na.omit
+#Prerequisite 1: No significant outliers.
+install.packages("rstatix")
+library(rstatix)
+analysis %>%
+  group_by(RatAge) %>%
+  identify_outliers(`Discrimination Score`)
+analysis %>%
+  group_by(Environment) %>%
+  identify_outliers(`Discrimination Score`)
+#No outliers detected!
 
+#Prerequisite 2: Normality within each Group.
+GroupbyRatAge <- analysis %>%
+  filter(RatAge == "Preweaning")
+install.packages("ggpubr")
+GroupbyRatAge <- analysis %>%
+  filter(RatAge == "Postweaning")
+GroupbyRatAge <- analysis %>%
+  filter(RatAge == "Adult")
+install.packages("ggpubr")
+library(ggpubr)
+ggqqplot(GroupbyRatAge, x = "Discrimination Score")
+#Approximately normally distributed (Within the allowed range).
+
+#Prerequisite 3: Homogeneity of Variances.
+levene_test(`Discrimination Score` ~ RatAge, data = analysis)
+#p = 0.771 passed the homogeneity test.
+levene_test(`Discrimination Score` ~ Environment, data = analysis)
+#Again, passed the homogeneity test.
+
+#Prerequisite 4: Assumption of Sphericity.
+#This will be reported when testing the model.
+
+#Prerequisite 5: Homogeneity of Covariances.
+install.packages("heplots")
+boxm <- box_m(analysis[, 4], analysis$RatAge)
+print(boxm)
+#Passed the homogeneity of covariances test.
+
+#Prepare summary statistics.
+analysis %>%
+  group_by(RatAge, Environment) %>%
+  summarise(mean = mean(`Discrimination Score`),
+            sd = sd(`Discrimination Score`))
+
+#Visualization.
+ggboxplot(
+  analysis, x = "RatAge", y = "Discrimination Score",
+  color = "Environment", palette = "jco"
+)
+
+#Computation
+library(lme4)
+model <- lmer(`Discrimination Score` ~ RatAge * Environment + (1|RatNumber), data = analysis)
+summary(model)
+#None of them are significant, unfortunately.
+library(emmeans)
+em <- emmeans(model, ~ RatAge * Environment)
+pairs(em, by = "RatAge")
+pairs(em, by = "Environment")
