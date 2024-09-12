@@ -266,9 +266,6 @@ analysis <- analysis %>%
   mutate(RatNumber = factor(RatNumber), 
          RatAge = factor(RatAge, levels = c("Preweaning", "Postweaning", "Adult")),
          Environment = factor(Environment, levels = c("baselineS", "similar", "baselineD", "different")))
-analysis %>%
-  filter(RatAge == "Postweaning") %>%
-  filter(Environment == "baselineD")
 analysis <- analysis %>%
   filter(!RatNumber == "r1571") %>%
   filter(!RatNumber == "r1572") %>%
@@ -330,3 +327,82 @@ ggplot(count, aes(x = Environment, y = prop, fill = RatAge)) +
   labs(title = "The Proportion of Animals with Discrimination Scores Greater than 0.5",
        y = "proportion")
 
+#Mixed Model ANOVA
+analysis <- analysis %>%
+  mutate(Environment = recode_factor(Environment, "baselineS" = "similar")) %>%
+  mutate(Environment = recode_factor(Environment, "baselineD" = "different")) 
+analysis <- analysis %>%
+  filter(!RatNumber == "r1571") %>%
+  filter(!RatNumber == "r1572") %>%
+  filter(!RatNumber == "r1573") %>%
+  filter(!RatNumber == "r1569") %>%
+  filter(!RatNumber == "r1589") %>%
+  filter(!RatNumber == "r1588") %>%
+  filter(!RatNumber == "r1591") %>%
+  na.omit
+analysis <- analysis %>%
+  mutate(RatNumber = factor(RatNumber), 
+         RatAge = factor(RatAge, levels = c("Preweaning", "Postweaning", "Adult")),
+         Environment = factor(Environment, levels = c("similar", "different")))
+
+#Visualization
+library(ggpubr)
+ggboxplot(
+  analysis, x = "RatAge", y = "Discrimination Score",
+  color = "Environment", palette = "jco"
+)
+
+#Computation
+library("tidyverse")
+library("afex")
+library("emmeans")
+install.packages("cowplot")
+library("cowplot")
+install.packages("ggbeeswarm")
+library(ggbeeswarm)
+theme_set(theme_bw(base_size = 15)+
+            theme(legend.position = "bottom"))
+a1 <- aov_ez("RatNumber", "Discrimination Score", analysis, between = "RatAge", 
+             within = "Environment")
+a1
+afex_plot(a1, "RatAge")
+afex_plot(a1, "Environment")
+afex_plot(a1, "RatAge", "Environment")
+em1 <- emmeans(a1, c("RatAge", "Environment"))
+em1
+pairs(em1, by = "RatAge")
+pairs(em1, by = "Environment")
+
+#Count the number of animals with discrimination scores over 0.5.
+count <- analysis %>%
+  filter(`Discrimination Score` > 0.5) %>%
+  group_by(RatAge, Environment) %>%
+  count() %>%
+  as_tibble
+count <- count %>%
+  mutate(num = 1:6)
+Totalcount <- analysis %>%
+  group_by(RatAge, Environment) %>%
+  count() %>%
+  as_tibble %>%
+  mutate(num = 1:6)
+count <- count %>%
+  mutate(total = Totalcount$n[match(num, Totalcount$num)])
+count
+count <- count %>%
+  mutate(prop = n/total)
+count
+count$RatAge <- factor(count$RatAge, levels = c("Preweaning", "Postweaning", "Adult"))
+count$Environment <- factor(count$Environment, levels = c("similar", "different"))
+count
+
+#Visualization
+library(ggplot2)
+ggplot(count, aes(x = RatAge, y = prop, fill = Environment)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title = "The Proportion of Animals with Discrimination Scores Greater than 0.5",
+       y = "porportion")
+ggplot(count, aes(x = Environment, y = prop, fill = RatAge)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title = "The Proportion of Animals with Discrimination Scores Greater than 0.5",
+       y = "proportion")
